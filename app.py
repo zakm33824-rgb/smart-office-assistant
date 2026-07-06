@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 import io
+import os
+import subprocess
+import sys
 import json
 import math
 import re
@@ -16,6 +19,47 @@ from typing import Any, Iterable
 
 import pandas as pd
 import streamlit as st
+
+
+def _maybe_bootstrap_space_port() -> None:
+    if os.environ.get("DEPLOY_PORT_SHIM_CHILD") == "1":
+        return
+    if os.environ.get("STREAMLIT_SERVER_PORT") == "8501":
+        return
+    if not any(os.environ.get(name) for name in ("SPACE_ID", "SPACE_HOST", "HF_SPACE_ID")):
+        return
+    if os.environ.get("_OFFICE_SPACE_CHILD_STARTED") == "1":
+        return
+
+    child_env = os.environ.copy()
+    child_env["DEPLOY_PORT_SHIM_CHILD"] = "1"
+    child_env["_OFFICE_SPACE_CHILD_STARTED"] = "1"
+    child_env["STREAMLIT_SERVER_ADDRESS"] = "0.0.0.0"
+    child_env["STREAMLIT_SERVER_PORT"] = "8501"
+    child_env["STREAMLIT_SERVER_HEADLESS"] = "true"
+    child_env["STREAMLIT_BROWSER_GATHER_USAGE_STATS"] = "false"
+
+    subprocess.Popen(
+        [
+            sys.executable,
+            "-m",
+            "streamlit",
+            "run",
+            str(Path(__file__).resolve()),
+            "--server.address=0.0.0.0",
+            "--server.port=8501",
+            "--server.headless=true",
+        ],
+        env=child_env,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        close_fds=True,
+    )
+    st.stop()
+
+
+_maybe_bootstrap_space_port()
+
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from pptx import Presentation
 from pptx.chart.data import CategoryChartData
@@ -693,27 +737,27 @@ def _generate_outline_json(plan: dict[str, Any]) -> bytes:
 
 
 # -----------------------------
-# PPT ?????????
+# PPT 页面识别与候选规则
 # -----------------------------
 
 LAYOUT_HINT_RULES = [
-    ('cover_slide', (r'??', r'??', r'??', r'cover', r'title page', r'hero')),
-    ('agenda_slide', (r'??', r'??', r'??', r'agenda', r'contents')),
-    ('section_slide', (r'??', r'??', r'??', r'section', r'divider')),
-    ('kpi_slide', (r'KPI', r'??', r'????', r'??', r'metric')),
-    ('dashboard_slide', (r'???', r'????', r'??', r'dashboard')),
-    ('data_analysis_slide', (r'????', r'??', r'????', r'???', r'analysis')),
-    ('chart_slide', (r'??', r'???', r'???', r'??', r'???', r'???', r'???', r'???', r'chart')),
-    ('table_slide', (r'??', r'??', r'??', r'???', r'table', r'list')),
-    ('timeline_slide', (r'???', r'???', r'???', r'roadmap', r'timeline', r'milestone')),
-    ('process_slide', (r'??', r'??', r'workflow', r'process', r'flow')),
-    ('comparison_slide', (r'??', r'??', r'before after', r'contrast')),
-    ('strategy_slide', (r'SWOT', r'PEST', r'??', r'??', r'strategy')),
-    ('people_slide', (r'??', r'??', r'??', r'profile', r'people')),
-    ('product_slide', (r'??', r'??', r'??', r'product')),
-    ('gallery_slide', (r'??', r'??', r'???', r'gallery', r'portfolio')),
-    ('map_slide', (r'??', r'??', r'??', r'world', r'china')),
-    ('ending_slide', (r'??', r'??', r'??', r'Q&A', r'thanks', r'end')),
+    ('cover_slide', (r'封面', r'首页', r'打开页', r'cover', r'title page', r'hero')),
+    ('agenda_slide', (r'目录', r'议程', r'大纲', r'agenda', r'contents')),
+    ('section_slide', (r'章节', r'过渡', r'分节', r'section', r'divider')),
+    ('kpi_slide', (r'KPI', r'指标', r'关键指标', r'看板', r'metric')),
+    ('dashboard_slide', (r'仪表盘', r'数据看板', r'大屏', r'dashboard')),
+    ('data_analysis_slide', (r'数据分析', r'洞察', r'分析报告', r'结论页', r'analysis')),
+    ('chart_slide', (r'图表', r'柱状图', r'折线图', r'饼图', r'雷达图', r'散点图', r'热力图', r'趋势图', r'chart')),
+    ('table_slide', (r'表格', r'明细', r'清单', r'汇总表', r'table', r'list')),
+    ('timeline_slide', (r'时间线', r'时间轴', r'里程碑', r'roadmap', r'timeline', r'milestone')),
+    ('process_slide', (r'流程', r'步骤', r'workflow', r'process', r'flow')),
+    ('comparison_slide', (r'对比', r'差异', r'before after', r'contrast')),
+    ('strategy_slide', (r'SWOT', r'PEST', r'策略', r'战略', r'strategy')),
+    ('people_slide', (r'团队', r'人物', r'组织', r'profile', r'people')),
+    ('product_slide', (r'产品', r'功能', r'方案', r'product')),
+    ('gallery_slide', (r'图片', r'案例', r'作品集', r'gallery', r'portfolio')),
+    ('map_slide', (r'地图', r'区域', r'分布', r'world', r'china')),
+    ('ending_slide', (r'致谢', r'谢谢', r'结束', r'Q&A', r'thanks', r'end')),
 ]
 def _resolve_preview_path(raw: Any) -> Path | None:
     if not raw:
@@ -771,10 +815,8 @@ def _infer_layout_from_instruction(instruction: str, fallback: str = 'content_sl
 def _extract_title_from_instruction(instruction: str) -> str:
     text = normalize_text(instruction)
     patterns = [
-        r'(?:??|??|??|??|??|??|??|???)\s*[:?]?\s*['"??]?([^'"??
-]{2,32})['"??]?',
-        r'['"??]([^'"??
-]{2,32})['"??]',
+        r"(?:\u6807\u9898|\u4e3b\u9898|\u9898\u76ee|\u540d\u79f0|\u6539\u6210|\u6539\u4e3a|\u8bbe\u4e3a|\u547d\u540d\u4e3a)\s*[:?]?\s*[\"']?([^\"']{2,32})[\"']?",
+        r"[\"']([^\"']{2,32})[\"']",
     ]
     for pattern in patterns:
         match = re.search(pattern, text)
@@ -787,8 +829,7 @@ def _extract_title_from_instruction(instruction: str) -> str:
 
 def _extract_section_from_instruction(instruction: str) -> str:
     text = normalize_text(instruction)
-    match = re.search(r'(?:??|??|??|??|??|??|section)\s*[:?]?\s*['"??]?([^'"??
-]{2,20})['"??]?', text)
+    match = re.search(r"(?:\u7ae0\u8282|\u90e8\u5206|\u6a21\u5757|\u5c0f\u8282|\u5206\u8282|\u677f\u5757|section)\s*[:?]?\s*[\"']?([^\"']{2,20})[\"']?", text)
     return match.group(1).strip() if match else ''
 
 
@@ -815,16 +856,15 @@ def _apply_single_page_instruction(plan: dict[str, Any], page_no: int, instructi
         page['layout_type'] = layout_type
         page['recommended_slide_ids'] = _candidate_ids_for_layout(layout_type, slide_lookup, updated.get('style', ''))
 
-    count_match = re.search(r'(\d+)\s*(?:?|?|?|?|?|?|??|??)?', text)
+    count_match = re.search(r'(\d+)\s*(?:个|条|点|项|页|段|要点|内容)?', text)
     if count_match:
         target_count = max(2, min(8, int(count_match.group(1))))
         bullets = list(page.get('bullets', []))[:target_count]
         while len(bullets) < target_count:
-            bullets.append(f'?? {len(bullets) + 1}')
+            bullets.append(f'要点 {len(bullets) + 1}')
         page['bullets'] = bullets
     else:
-        fragments = [frag.strip() for frag in re.split(r'[
-?;|,?]+', text) if frag.strip()]
+        fragments = [frag.strip() for frag in re.split(r'[\n?;|,?]+', text) if frag.strip()]
         fragments = [frag for frag in fragments if 3 <= len(frag) <= 32]
         if fragments:
             page['bullets'] = fragments[:6]
@@ -833,37 +873,35 @@ def _apply_single_page_instruction(plan: dict[str, Any], page_no: int, instructi
     updated['pages'] = pages
     updated['total_pages'] = len(pages)
     return updated
-
-
 def _render_library_metrics() -> None:
     manifest = ensure_library_ready()
     summary = load_slide_summary()
     cols = st.columns(5)
-    cols[0].metric('????', int(manifest.get('source_count', 0)))
-    cols[1].metric('????', int(manifest.get('template_count', 0)))
-    cols[2].metric('????', int(manifest.get('slide_count', 0)))
-    cols[3].metric('????', int(manifest.get('component_count', 0)))
-    cols[4].metric('????', int(summary.get('premium_count', 0)))
+    cols[0].metric('资源来源', int(manifest.get('source_count', 0)))
+    cols[1].metric('模板数量', int(manifest.get('template_count', 0)))
+    cols[2].metric('页面数量', int(manifest.get('slide_count', 0)))
+    cols[3].metric('组件数量', int(manifest.get('component_count', 0)))
+    cols[4].metric('优质模板', int(summary.get('premium_count', 0)))
 
 
 def _render_uploaded_profile() -> None:
     profile = st.session_state.get(UPLOADED_PROFILE_KEY)
     if not profile:
         return
-    st.markdown('**Excel ??**')
+    st.markdown('**Excel 概览**')
     cols = st.columns(4)
-    cols[0].metric('??', profile.get('rows', 0))
-    cols[1].metric('??', profile.get('columns', 0))
-    cols[2].metric('???', len(profile.get('numeric_columns', [])))
-    cols[3].metric('?????', len(profile.get('suggested_visuals', [])))
+    cols[0].metric('行数', profile.get('rows', 0))
+    cols[1].metric('列数', profile.get('columns', 0))
+    cols[2].metric('数值列', len(profile.get('numeric_columns', [])))
+    cols[3].metric('可视化建议', len(profile.get('suggested_visuals', [])))
     st.caption(profile.get('summary', ''))
 
 
 def _render_outline_editor(plan: dict[str, Any]) -> pd.DataFrame:
-    st.subheader('????')
+    st.subheader('页面大纲')
     outline_df = _page_editor_df(plan)
     if outline_df.empty:
-        st.info('??????????????????')
+        st.info('当前没有可编辑的大纲，请先生成方案。')
         return outline_df
     edited_df = st.data_editor(
         outline_df,
@@ -874,35 +912,36 @@ def _render_outline_editor(plan: dict[str, Any]) -> pd.DataFrame:
         key='ppt_outline_editor',
     )
     cols = st.columns(3)
-    if cols[0].button('????', type='primary', use_container_width=True):
+    if cols[0].button('应用修改', type='primary', use_container_width=True):
         st.session_state[PLAN_KEY] = _apply_editor_changes(plan, edited_df)
         st.rerun()
     if cols[1].download_button(
-        '?? JSON',
+        '导出 JSON',
         data=_generate_outline_json(plan),
         file_name='ppt_outline.json',
         mime='application/json',
         use_container_width=True,
     ):
         pass
-    if cols[2].button('????', use_container_width=True):
+    if cols[2].button('重置编辑', use_container_width=True):
         st.session_state.pop('ppt_outline_editor', None)
         st.rerun()
     return edited_df
 
 
 STYLE_VARIANT_GROUPS: dict[str, list[str]] = {
-    'business': ['????', '???', '???'],
-    'academic': ['????', '???', '???'],
-    'creative': ['????', '???', '????'],
-    'technology': ['???', '????', '????'],
-    'finance': ['???', '????', '????'],
-    'government': ['???', '????', '???'],
-    'minimal': ['???', '????', '????'],
-    'dark': ['????', '???', '???'],
+    'business': ['简约商务', '极简白', '科技蓝'],
+    'academic': ['学术汇报', '极简白', '政务红'],
+    'creative': ['创意演示', '科技蓝', '黑金高端'],
+    'technology': ['科技蓝', '黑金高端', '简约商务'],
+    'finance': ['金融绿', '简约商务', '黑金高端'],
+    'government': ['政务红', '简约商务', '极简白'],
+    'minimal': ['极简白', '简约商务', '学术汇报'],
+    'dark': ['黑金高端', '科技蓝', '金融绿'],
 }
 
 LAYOUT_LABELS = {
+
 
     'cover_slide': '封面页',
     'agenda_slide': '目录页',
@@ -948,7 +987,7 @@ def _style_variant_labels(style_label: str) -> list[str]:
     labels = [base_style]
     labels.extend(STYLE_VARIANT_GROUPS.get(base_code, []))
     labels.append(style_label)
-    return [label for label in _dedupe_preserve(labels) if label in PPT_STYLES][:3] or ['????', '???', '???']
+    return [label for label in _dedupe_preserve(labels) if label in PPT_STYLES][:3] or ['\u7b80\u7ea6\u5546\u52a1', '\u79d1\u6280\u84dd', '\u6781\u7b80\u767d']
 
 
 def _humanize_layout(layout_type: str) -> str:
@@ -1038,61 +1077,61 @@ def _apply_nl_edit(plan: dict[str, Any], command: str) -> dict[str, Any]:
         return updated
 
     style_rules = [
-        (['??', '??', '??'], '????'),
-        (['??', 'AI', '??', '??'], '???'),
-        (['??', '??', '??', '??'], '???'),
-        (['??', '??', '??'], '???'),
-        (['??', '??', '??'], '???'),
-        (['??', '??', '??'], '????'),
-        (['??', '??', '??'], '????'),
-        (['??', '??', '???'], '????'),
+        (['黑金', '高端', '复古'], '黑金高端'),
+        (['科技', 'AI', '数字', '智能'], '科技蓝'),
+        (['金融', '银行', '证券', '保险'], '金融绿'),
+        (['政务', '政府', '党建'], '政务红'),
+        (['极简', '简洁', '留白'], '极简白'),
+        (['学术', '论文', '答辩'], '学术汇报'),
+        (['创意', '插画', '活泼'], '创意演示'),
+        (['商务', '咨询', '麦肯锡'], '简约商务'),
     ]
     for keywords, style_name in style_rules:
         if any(keyword in text for keyword in keywords):
             updated = _apply_style_override(updated, style_name)
             break
 
-    page_match = re.search(r'?(\d+)?', text)
+    page_match = re.search(r'第(\d+)页', text)
     if page_match:
         page_no = int(page_match.group(1))
         if 1 <= page_no <= len(updated.get('pages', [])):
             page = updated['pages'][page_no - 1]
-            if any(keyword in text for keyword in ['??', '??']):
+            if any(keyword in text for keyword in ['删除', '移除']):
                 del updated['pages'][page_no - 1]
                 return _renumber_pages(updated)
-            if any(keyword in text for keyword in ['?????', '???', '??']):
+            if any(keyword in text for keyword in ['转成大数字', '冲击力', '大屏']):
                 page['layout_type'] = 'dashboard_slide'
-            elif any(keyword in text for keyword in ['???', '??', '??']):
+            elif any(keyword in text for keyword in ['更简洁', '简洁', '留白']):
                 page['layout_type'] = 'section_slide'
-            elif any(keyword in text for keyword in ['???', '???', 'AI']):
+            elif any(keyword in text for keyword in ['更科技', '科技感', 'AI']):
                 page['layout_type'] = 'dashboard_slide'
-            elif any(keyword in text for keyword in ['???', '???']):
+            elif any(keyword in text for keyword in ['更高级', '高级感']):
                 page['layout_type'] = 'gallery_slide'
-            elif '??' in text:
+            elif '表格' in text:
                 page['layout_type'] = 'table_slide'
-            elif '??' in text:
+            elif '地图' in text:
                 page['layout_type'] = 'map_slide'
-            elif any(keyword in text for keyword in ['??', '???']):
+            elif any(keyword in text for keyword in ['流程', '路线图']):
                 page['layout_type'] = 'process_slide'
-            elif any(keyword in text for keyword in ['???', '???']):
+            elif any(keyword in text for keyword in ['时间线', '时间轴']):
                 page['layout_type'] = 'timeline_slide'
 
-    if '????' in text or '????' in text or '????' in text:
-        title = '????'
-        if '????' in text:
-            title = '????'
-        elif '????' in text:
-            title = '????'
-        elif '??' in text:
-            title = '??'
+    if '新增一页' in text or '添加一页' in text or '增加一页' in text:
+        title = '新增页面'
+        if '用户画像' in text:
+            title = '用户画像'
+        elif '行动计划' in text:
+            title = '行动计划'
+        elif '结论' in text:
+            title = '结论'
         layout = 'content_slide'
         for keyword, layout_type in [
-            ('??', 'data_analysis_slide'),
-            ('??', 'chart_slide'),
-            ('??', 'timeline_slide'),
-            ('??', 'map_slide'),
-            ('??', 'process_slide'),
-            ('??', 'comparison_slide'),
+            ('数据', 'data_analysis_slide'),
+            ('图表', 'chart_slide'),
+            ('时间', 'timeline_slide'),
+            ('地图', 'map_slide'),
+            ('流程', 'process_slide'),
+            ('对比', 'comparison_slide'),
         ]:
             if keyword in text:
                 layout = layout_type
@@ -1110,7 +1149,7 @@ def _apply_nl_edit(plan: dict[str, Any], command: str) -> dict[str, Any]:
 
 
 def _seed_demo_state() -> None:
-    default_style = '????'
+    default_style = '简约商务'
     st.session_state.setdefault('ppt_prompt_input', DEFAULT_PPT_PROMPT)
     st.session_state.setdefault('ppt_style_input', default_style)
     st.session_state.setdefault('ppt_page_range', (8, 10))
@@ -1163,9 +1202,9 @@ def _render_plan_overview(plan: dict[str, Any]) -> dict[str, Any]:
 
 def _render_candidate_rows(plan_page: dict[str, Any], slide_lookup: pd.DataFrame, page_no: int) -> str:
     rec_df = _recommendation_rows(plan_page, slide_lookup)
-    default_choice = '????'
+    default_choice = '自动推荐'
     if rec_df.empty:
-        st.info('??????????????????????????')
+        st.info('该页暂无对应候选布局，可以保持自动绘制或再刷新调整。')
         return default_choice
     preview_cols = [c for c in ['slide_id', 'slide_type', 'slide_subtype', 'layout_type', 'overall_quality_score', 'preview_image'] if c in rec_df.columns]
     st.dataframe(rec_df[preview_cols].head(3), use_container_width=True, hide_index=True)
@@ -1176,24 +1215,24 @@ def _render_candidate_rows(plan_page: dict[str, Any], slide_lookup: pd.DataFrame
             if preview_image and Path(preview_image).exists():
                 st.image(preview_image, use_container_width=True)
             st.caption(f"{row.get('slide_id', '')} | {row.get('overall_quality_score', 0)}")
-    options = ['????'] + rec_df['slide_id'].astype(str).tolist()
+    options = ['自动推荐'] + rec_df['slide_id'].astype(str).tolist()
     preferred = str(plan_page.get('selected_slide_id', '')).strip()
     if preferred not in options:
         preferred = options[1] if len(options) > 1 else options[0]
-    choice = st.selectbox('????', options, index=options.index(preferred), key=f'ppt_candidate_choice_{page_no}')
+    choice = st.selectbox('布局选择', options, index=options.index(preferred), key=f'ppt_candidate_choice_{page_no}')
     return choice
 
 
 def render_ppt_workbench() -> None:
-    st.header('PPT ?????')
-    st.caption('????????????????? .pptx?')
+    st.header('PPT 生成工作台')
+    st.caption('先出三套方案，再按页编辑，最后导出 .pptx。')
     left, right = st.columns([1.25, 1])
     with left:
-        prompt = st.text_area('????', value=st.session_state.get('ppt_prompt_input', DEFAULT_PPT_PROMPT), height=140, key='ppt_prompt_input')
-        style_label = st.selectbox('???', list(STYLE_UI_TO_CODE.keys()), index=list(STYLE_UI_TO_CODE.keys()).index(st.session_state.get('ppt_style_input', '????')) if st.session_state.get('ppt_style_input', '????') in STYLE_UI_TO_CODE else 0, key='ppt_style_input')
-        page_range = st.slider('????', 6, 16, st.session_state.get('ppt_page_range', (8, 10)), key='ppt_page_range')
+        prompt = st.text_area('需求描述', value=st.session_state.get('ppt_prompt_input', DEFAULT_PPT_PROMPT), height=140, key='ppt_prompt_input')
+        style_label = st.selectbox('主风格', list(STYLE_UI_TO_CODE.keys()), index=list(STYLE_UI_TO_CODE.keys()).index(st.session_state.get('ppt_style_input', '简约商务')) if st.session_state.get('ppt_style_input', '简约商务') in STYLE_UI_TO_CODE else 0, key='ppt_style_input')
+        page_range = st.slider('页数范围', 6, 16, st.session_state.get('ppt_page_range', (8, 10)), key='ppt_page_range')
     with right:
-        uploaded = st.file_uploader('?? CSV / XLSX ??????', type=['csv', 'xlsx', 'xls'], key='ppt_data_upload')
+        uploaded = st.file_uploader('上传 CSV / XLSX 作为数据参考', type=['csv', 'xlsx', 'xls'], key='ppt_data_upload')
         if uploaded is not None:
             try:
                 uploaded_df = _read_dataframe_from_upload(uploaded)
@@ -1202,41 +1241,41 @@ def render_ppt_workbench() -> None:
                 st.success(st.session_state[UPLOADED_PROFILE_KEY]['summary'])
                 st.dataframe(uploaded_df.head(8), use_container_width=True, hide_index=True)
             except Exception as exc:  # noqa: BLE001
-                st.error(f'???????{exc}')
+                st.error(f'数据读取失败：{exc}')
         elif st.session_state.get(UPLOADED_PROFILE_KEY):
             st.info(st.session_state[UPLOADED_PROFILE_KEY]['summary'])
-    generate = st.button('?? 3 ???', type='primary', use_container_width=True)
+    generate = st.button('生成 3 套方案', type='primary', use_container_width=True)
     if generate:
         try:
-            with st.spinner('?????????????...'):
+            with st.spinner('正在分析需求并生成候选方案...'):
                 variants = _build_candidate_plans(prompt, style_label, page_range, st.session_state.get(UPLOADED_DF_KEY))
             if variants:
                 st.session_state['ppt_candidate_variants'] = variants
                 st.session_state['ppt_variant_index'] = 0
                 st.session_state[PLAN_KEY] = deepcopy(variants[0]['plan'])
                 st.session_state[PLAN_SOURCE_KEY] = 'variants'
-                st.success('?????')
+                st.success('方案已生成')
                 st.rerun()
         except Exception as exc:  # noqa: BLE001
-            st.error(f'?????{exc}')
+            st.error(f'生成失败：{exc}')
     variants = st.session_state.get('ppt_candidate_variants', [])
     if not variants:
-        st.info('????? 3 ???????????????????????')
+        st.info('点击?生成 3 套方案?，我们会先给出三套不同风格的布局方案。')
         return
     active_idx = int(st.session_state.get('ppt_variant_index', 0))
     active_idx = max(0, min(active_idx, len(variants) - 1))
     plan = deepcopy(st.session_state.get(PLAN_KEY, variants[active_idx]['plan']))
-    st.subheader('????')
+    st.subheader('方案选择')
     variant_cols = st.columns(len(variants))
     for idx, item in enumerate(variants):
         with variant_cols[idx]:
             st.markdown(f"**{item['label']}**")
             st.caption(item['style_label'])
-            st.metric('??', item['insights']['page_count'])
-            st.metric('?????', f"{item['insights']['layout_similarity_score']}%")
-            st.write(f"???: {item['insights']['dominant_layout_label']}")
-            st.write(' ? '.join(STYLE_RHYTHM_LABELS.get(d, d) for d in item['insights']['density_series']) or '????')
-            if st.button('?????', key=f'choose_variant_{idx}', use_container_width=True):
+            st.metric('页数', item['insights']['page_count'])
+            st.metric('布局重复度', f"{item['insights']['layout_similarity_score']}%")
+            st.write(f"主布局: {item['insights']['dominant_layout_label']}")
+            st.write(' → '.join(STYLE_RHYTHM_LABELS.get(d, d) for d in item['insights']['density_series']) or '暂无数据')
+            if st.button('采用此方案', key=f'choose_variant_{idx}', use_container_width=True):
                 st.session_state['ppt_variant_index'] = idx
                 st.session_state[PLAN_KEY] = deepcopy(item['plan'])
                 st.session_state[PLAN_SOURCE_KEY] = item['label']
@@ -1244,26 +1283,26 @@ def render_ppt_workbench() -> None:
     active_idx = int(st.session_state.get('ppt_variant_index', 0))
     active_idx = max(0, min(active_idx, len(variants) - 1))
     plan = deepcopy(st.session_state.get(PLAN_KEY, variants[active_idx]['plan']))
-    st.success(f"?????{variants[active_idx]['label']} ? {variants[active_idx]['style_label']}")
+    st.success(f"当前采用：{variants[active_idx]['label']} · {variants[active_idx]['style_label']}")
     _render_plan_overview(plan)
-    st.subheader('????')
+    st.subheader('页面大纲')
     editor_df = _page_editor_df(plan)
     edited_df = st.data_editor(editor_df, use_container_width=True, hide_index=True, disabled=['page_no', 'candidate_count'])
     editor_cols = st.columns(3)
     with editor_cols[0]:
-        if st.button('??????', type='primary', use_container_width=True):
+        if st.button('应用页面修改', type='primary', use_container_width=True):
             st.session_state[PLAN_KEY] = _apply_editor_changes(plan, edited_df)
             st.rerun()
     with editor_cols[1]:
-        if st.button('??????', use_container_width=True):
+        if st.button('恢复当前方案', use_container_width=True):
             st.session_state[PLAN_KEY] = deepcopy(variants[active_idx]['plan'])
             st.rerun()
     with editor_cols[2]:
-        if st.button('??????', use_container_width=True):
+        if st.button('刷新候选方案', use_container_width=True):
             st.session_state.pop('ppt_candidate_variants', None)
             st.rerun()
 
-    st.subheader('??????')
+    st.subheader('页面候选布局')
     slide_lookup = _slide_catalog_lookup()
     selection_map: dict[int, str] = {}
     for page in plan.get('pages', []) or []:
@@ -1274,45 +1313,43 @@ def render_ppt_workbench() -> None:
         with st.expander(f"{page_no}. {section or title} - {title} - {layout_label}", expanded=page_no <= 2):
             bullets = page.get('bullets', []) or []
             if bullets:
-                st.write(f"?????{bullets[0]}")
+                st.write(f"核心内容：{bullets[0]}")
             choice = _render_candidate_rows(page, slide_lookup, page_no)
-            if choice != '????':
+            if choice != '自动推荐':
                 selection_map[page_no] = choice
-    if st.button('??????', use_container_width=True):
+    if st.button('应用候选布局', use_container_width=True):
         st.session_state[PLAN_KEY] = _apply_candidate_selection(plan, selection_map, slide_lookup)
         st.rerun()
 
-    st.subheader('??????')
-    nl_command = st.text_area('????', value=st.session_state.get('ppt_nl_command', ''), height=100, key='ppt_nl_command')
+    st.subheader('自然语言修改')
+    nl_command = st.text_area('修改指令', value=st.session_state.get('ppt_nl_command', ''), height=100, key='ppt_nl_command')
     nl_cols = st.columns(2)
     with nl_cols[0]:
-        if st.button('????', use_container_width=True):
+        if st.button('应用修改', use_container_width=True):
             st.session_state[PLAN_KEY] = _apply_nl_edit(plan, nl_command)
             st.rerun()
     with nl_cols[1]:
-        if st.button('??????', use_container_width=True):
+        if st.button('清空修改指令', use_container_width=True):
             st.session_state['ppt_nl_command'] = ''
             st.rerun()
 
-    st.subheader('??')
+    st.subheader('导出')
     export_cols = st.columns(3)
     with export_cols[0]:
-        if st.button('?? PPTX', type='primary', use_container_width=True):
+        if st.button('生成 PPTX', type='primary', use_container_width=True):
             try:
-                with st.spinner('???? PPTX...'):
+                with st.spinner('正在生成 PPTX...'):
                     out_path, pptx_bytes = _generate_pptx(st.session_state.get(PLAN_KEY, plan), st.session_state.get(UPLOADED_DF_KEY))
                 st.session_state[PPT_PATH_KEY] = str(out_path)
                 st.session_state[PPT_BYTES_KEY] = pptx_bytes
-                st.success(f'????{out_path.name}')
+                st.success(f'已生成：{out_path.name}')
             except Exception as exc:  # noqa: BLE001
-                st.error(f'PPTX ?????{exc}')
+                st.error(f'PPTX 生成失败：{exc}')
     with export_cols[1]:
         if st.session_state.get(PPT_BYTES_KEY):
-            st.download_button('?? PPTX', data=st.session_state[PPT_BYTES_KEY], file_name=safe_filename(str(plan.get('title', '??PPT')), '.pptx'), mime='application/vnd.openxmlformats-officedocument.presentationml.presentation', use_container_width=True)
+            st.download_button('下载 PPTX', data=st.session_state[PPT_BYTES_KEY], file_name=safe_filename(str(plan.get('title', '智能PPT')), '.pptx'), mime='application/vnd.openxmlformats-officedocument.presentationml.presentation', use_container_width=True)
     with export_cols[2]:
-        st.download_button('???? JSON', data=_generate_outline_json(st.session_state.get(PLAN_KEY, plan)), file_name='ppt_outline.json', mime='application/json', use_container_width=True)
-
-
+        st.download_button('下载大纲 JSON', data=_generate_outline_json(st.session_state.get(PLAN_KEY, plan)), file_name='ppt_outline.json', mime='application/json', use_container_width=True)
 def _render_table_downloads(df: pd.DataFrame, summary_df: pd.DataFrame | None, theme_name: str, prefix: str) -> None:
     if df.empty:
         return
@@ -1326,25 +1363,25 @@ def _render_table_downloads(df: pd.DataFrame, summary_df: pd.DataFrame | None, t
 
 
 def render_table_workbench() -> None:
-    st.header('????')
-    tabs = st.tabs(['????', '????'])
+    st.header('表格工具')
+    tabs = st.tabs(['文本生成', '文件处理'])
     with tabs[0]:
-        st.subheader('??????')
-        prompt = st.text_area('????', value=st.session_state.get('table_prompt_input', DEFAULT_TABLE_PROMPT), height=120, key='table_prompt_input')
-        row_count = st.slider('????', 3, 20, int(st.session_state.get('table_row_count', 8)), key='table_row_count')
+        st.subheader('文本生成表格')
+        prompt = st.text_area('表格描述', value=st.session_state.get('table_prompt_input', DEFAULT_TABLE_PROMPT), height=120, key='table_prompt_input')
+        row_count = st.slider('示例行数', 3, 20, int(st.session_state.get('table_row_count', 8)), key='table_row_count')
         theme_options = list(STYLE_UI_TO_CODE.keys())
-        current_theme = st.session_state.get('table_theme_input', '????')
-        theme_name = st.selectbox('????', theme_options, index=theme_options.index(current_theme) if current_theme in STYLE_UI_TO_CODE else 0, key='table_theme_input')
+        current_theme = st.session_state.get('table_theme_input', '简约商务')
+        theme_name = st.selectbox('表格风格', theme_options, index=theme_options.index(current_theme) if current_theme in STYLE_UI_TO_CODE else 0, key='table_theme_input')
         cols = st.columns(2)
         with cols[0]:
-            if st.button('??????', type='primary', use_container_width=True):
+            if st.button('生成示例表格', type='primary', use_container_width=True):
                 generated_df = generate_table_dataframe(prompt, row_count)
                 summary_df = None
                 st.session_state[TABLE_DF_KEY] = generated_df
                 st.session_state[TABLE_SUMMARY_KEY] = summary_df
-                st.success(f'??? {len(generated_df)} ???')
+                st.success(f'已生成 {len(generated_df)} 行数据')
         with cols[1]:
-            if st.button('??????', use_container_width=True):
+            if st.button('恢复系统示例', use_container_width=True):
                 st.session_state[TABLE_DF_KEY] = generate_table_dataframe(DEFAULT_TABLE_PROMPT, 8)
                 st.session_state[TABLE_SUMMARY_KEY] = None
                 st.rerun()
@@ -1353,10 +1390,10 @@ def render_table_workbench() -> None:
             st.dataframe(generated_df, use_container_width=True, hide_index=True)
             _render_table_downloads(generated_df, st.session_state.get(TABLE_SUMMARY_KEY), theme_name, 'generated_table')
         else:
-            st.info('????????????')
+            st.info('暂无表格数据，请先生成。')
     with tabs[1]:
-        st.subheader('????')
-        uploaded = st.file_uploader('?? CSV / XLSX', type=['csv', 'xlsx', 'xls'], key='table_upload')
+        st.subheader('文件处理')
+        uploaded = st.file_uploader('上传 CSV / XLSX', type=['csv', 'xlsx', 'xls'], key='table_upload')
         raw_df = st.session_state.get(UPLOADED_DF_KEY, pd.DataFrame())
         if uploaded is not None:
             try:
@@ -1365,45 +1402,45 @@ def render_table_workbench() -> None:
                 st.session_state[UPLOADED_PROFILE_KEY] = analyze_uploaded_dataframe(raw_df)
                 st.success(st.session_state[UPLOADED_PROFILE_KEY]['summary'])
             except Exception as exc:  # noqa: BLE001
-                st.error(f'???????{exc}')
+                st.error(f'文件读取失败：{exc}')
         if raw_df is not None and not raw_df.empty:
             profile = st.session_state.get(UPLOADED_PROFILE_KEY) or analyze_uploaded_dataframe(raw_df)
             st.json(profile)
             st.dataframe(raw_df.head(10), use_container_width=True, hide_index=True)
             controls = st.columns(3)
             with controls[0]:
-                dedupe = st.checkbox('??', value=True, key='table_dedupe')
-                fill_missing = st.checkbox('????', value=True, key='table_fill_missing')
-                add_total_row = st.checkbox('?????', value=False, key='table_total_row')
+                dedupe = st.checkbox('去重', value=True, key='table_dedupe')
+                fill_missing = st.checkbox('填充空值', value=True, key='table_fill_missing')
+                add_total_row = st.checkbox('添加汇总行', value=False, key='table_total_row')
             with controls[1]:
-                sort_column = st.selectbox('???', [''] + raw_df.columns.tolist(), index=0, key='table_sort_column')
-                ascending = st.checkbox('??', value=False, key='table_sort_ascending')
+                sort_column = st.selectbox('排序列', [''] + raw_df.columns.tolist(), index=0, key='table_sort_column')
+                ascending = st.checkbox('升序', value=False, key='table_sort_ascending')
             with controls[2]:
-                group_column = st.selectbox('???', [''] + raw_df.columns.tolist(), index=0, key='table_group_column')
+                group_column = st.selectbox('分组列', [''] + raw_df.columns.tolist(), index=0, key='table_group_column')
                 agg_candidates = [''] + [col for col in raw_df.columns if pd.api.types.is_numeric_dtype(raw_df[col])]
-                agg_column = st.selectbox('???', agg_candidates, index=0 if len(agg_candidates) == 1 else 1, key='table_agg_column')
-            agg_func = st.selectbox('????', ['sum', 'mean', 'max', 'min', 'count'], key='table_agg_func')
-            if st.button('????', type='primary', use_container_width=True):
+                agg_column = st.selectbox('汇总列', agg_candidates, index=0 if len(agg_candidates) == 1 else 1, key='table_agg_column')
+            agg_func = st.selectbox('汇总方式', ['sum', 'mean', 'max', 'min', 'count'], key='table_agg_func')
+            if st.button('处理表格', type='primary', use_container_width=True):
                 try:
                     processed_df, summary_df = process_dataframe(raw_df, dedupe=dedupe, fill_missing=fill_missing, sort_column=sort_column, ascending=ascending, group_column=group_column, agg_column=agg_column, agg_func=agg_func, add_total_row=add_total_row)
                     st.session_state[TABLE_DF_KEY] = processed_df
                     st.session_state[TABLE_SUMMARY_KEY] = summary_df
-                    st.success(f'??????? {len(processed_df)} ?')
+                    st.success(f'处理完成，当前 {len(processed_df)} 行')
                 except Exception as exc:  # noqa: BLE001
-                    st.error(f'?????{exc}')
+                    st.error(f'处理失败：{exc}')
             processed_df = st.session_state.get(TABLE_DF_KEY)
             summary_df = st.session_state.get(TABLE_SUMMARY_KEY)
             if isinstance(processed_df, pd.DataFrame) and not processed_df.empty:
                 st.dataframe(processed_df, use_container_width=True, hide_index=True)
                 export_bytes = dataframe_to_bytes(processed_df, file_format='xlsx', summary_df=summary_df, theme_name=theme_name)
-                st.download_button('?? XLSX', data=export_bytes, file_name='processed_table.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', use_container_width=True)
+                st.download_button('下载 XLSX', data=export_bytes, file_name='processed_table.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', use_container_width=True)
                 csv_bytes = dataframe_to_bytes(processed_df, file_format='csv')
-                st.download_button('?? CSV', data=csv_bytes, file_name='processed_table.csv', mime='text/csv', use_container_width=True)
+                st.download_button('下载 CSV', data=csv_bytes, file_name='processed_table.csv', mime='text/csv', use_container_width=True)
             if isinstance(summary_df, pd.DataFrame) and not summary_df.empty:
-                st.markdown('**????**')
+                st.markdown('**分组汇总**')
                 st.dataframe(summary_df, use_container_width=True, hide_index=True)
         else:
-            st.info('???? CSV ? XLSX ???')
+            st.info('请先上传 CSV 或 XLSX 文件。')
 
 
 def render_template_library_workbench() -> None:
