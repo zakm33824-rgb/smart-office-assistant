@@ -20,6 +20,14 @@ from typing import Any, Iterable
 import pandas as pd
 import streamlit as st
 
+from ppt_template_library import app_ui as ppt_app_ui
+from ppt_template_library import catalog as ppt_catalog
+from ppt_template_library import manager as ppt_manager
+from ppt_template_library import page_engine as ppt_page_engine
+from ppt_template_library import page_library as ppt_page_library
+from ppt_template_library import seeds as ppt_seeds
+from ppt_template_library import smart_planner as ppt_smart_planner
+
 
 def _maybe_bootstrap_space_port() -> None:
     if os.environ.get("DEPLOY_PORT_SHIM_CHILD") == "1":
@@ -340,7 +348,131 @@ def _presentation() -> Presentation:
 
 from copy import deepcopy
 
-from ppt_template_library.manager import bootstrap_library, load_library_preview_counts
+
+GENERATED_LIBRARY_DIRS = (
+    'templates',
+    'components',
+    'preview',
+    'metadata',
+    'database',
+    'commercial_allowed',
+    'personal_use_only',
+    'license_uncertain',
+    'premium_quality',
+    'industry',
+    'scenario',
+    'style',
+    'color',
+    'layout',
+    'logs',
+    'source_records',
+)
+
+
+def _clear_generated_library_assets(root: str | Path = 'ppt_template_library') -> None:
+    root_path = Path(root)
+    for name in GENERATED_LIBRARY_DIRS:
+        target = root_path / name
+        try:
+            if target.is_dir():
+                shutil.rmtree(target, ignore_errors=True)
+            elif target.exists():
+                target.unlink()
+        except Exception:
+            pass
+
+
+def _normalize_prompt(text: str) -> str:
+    return re.sub(r'\s+', ' ', (text or '').strip())
+
+
+def _prompt_title(prompt: str) -> str:
+    text = _normalize_prompt(prompt)
+    for prefix in ('\u8bf7', '\u5e2e\u6211', '\u9ebb\u70e6', '\u751f\u6210', '\u5236\u4f5c', '\u8f93\u51fa', '\u505a\u4e00\u4efd', '\u505a\u4e2a', '\u5e2e\u5fd9'):
+        if text.startswith(prefix):
+            text = text[len(prefix):].lstrip()
+            break
+    if text.startswith('\u4e00\u4efd'):
+        text = text[2:].lstrip()
+    for marker in ('\u5305\u542b', '\u5305\u62ec', '\u6db5\u76d6', '\u56f4\u7ed5', '\u7ed3\u5408', '\u5b9e\u73b0', '\u5e76\u4e14', '\u5e76', '\u4ee5\u53ca', '\u3001', '\uff0c', '\u3002', '\uff1b', ';', ':', '\uff1a'):
+        if marker in text:
+            text = text.split(marker, 1)[0]
+            break
+    text = text.replace('PPTX', '').replace('pptx', '').replace('PPT', '').replace('ppt', '')
+    text = text.replace('\u5e7b\u706f\u7247', '').replace('\u6f14\u793a\u6587\u7a3f', '').replace('\u6c47\u62a5', '').replace('\u62a5\u544a', '')
+    return text.strip(' ,.:-_\u3001\u3002\uff1a\uff0c') or '\u667a\u80fdPPT'
+
+
+def _prompt_sections(prompt: str) -> list[str]:
+    text = _normalize_prompt(prompt)
+    fallback_map = [
+        (['\u590d\u76d8', '\u603b\u7ed3', '\u5e74\u62a5', '\u7ecf\u8425', '\u4e1a\u7ee9', '\u6c47\u62a5'], ['\u4e1a\u7ee9\u6982\u51b5', '\u589e\u957f\u5206\u6790', '\u95ee\u9898\u5206\u6790', '\u884c\u52a8\u8ba1\u5212']),
+        (['\u9879\u76ee', '\u8ba1\u5212', '\u8def\u7ebf\u56fe', '\u91cc\u7a0b\u7891', '\u63a8\u8fdb'], ['\u9879\u76ee\u80cc\u666f', '\u63a8\u8fdb\u8fdb\u5ea6', '\u98ce\u9669\u4e0e\u8d44\u6e90', '\u4e0b\u4e00\u6b65\u8ba1\u5212']),
+        (['\u4ea7\u54c1', '\u53d1\u5e03', '\u529f\u80fd', '\u4ecb\u7ecd'], ['\u4ea7\u54c1\u80cc\u666f', '\u6838\u5fc3\u4eae\u70b9', '\u5e94\u7528\u573a\u666f', '\u53d1\u5e03\u8ba1\u5212']),
+        (['\u5b66\u672f', '\u7814\u7a76', '\u8bba\u6587', '\u7b54\u8fa9'], ['\u7814\u7a76\u80cc\u666f', '\u65b9\u6cd5\u4e0e\u5b9e\u9a8c', '\u7ed3\u679c\u5206\u6790', '\u7ed3\u8bba\u5c55\u671b']),
+        (['\u5e02\u573a', '\u8425\u9500', '\u589e\u957f', '\u7528\u6237'], ['\u5e02\u573a\u80cc\u666f', '\u6e20\u9053\u8868\u73b0', '\u7528\u6237\u53cd\u9988', '\u8425\u9500\u8ba1\u5212']),
+        (['\u8d22\u52a1', '\u9500\u552e', '\u8fd0\u8425', '\u6570\u636e', '\u6307\u6807'], ['\u6838\u5fc3\u6307\u6807', '\u8d8b\u52bf\u5206\u6790', '\u7ed3\u6784\u62c6\u89e3', '\u7ba1\u7406\u5efa\u8bae']),
+    ]
+    fallback = ['\u80cc\u666f\u4e0e\u76ee\u6807', '\u6838\u5fc3\u8fdb\u5c55', '\u95ee\u9898\u5206\u6790', '\u884c\u52a8\u8ba1\u5212']
+    for keywords, sections in fallback_map:
+        if any(keyword in text for keyword in keywords):
+            fallback = sections
+            break
+    extracted = ''
+    for marker in ('\u5305\u542b', '\u5305\u62ec', '\u6db5\u76d6', '\u56f4\u7ed5', '\u5206\u4e3a', '\u5206\u6210', '\u5217\u51fa', '\u7ed9\u51fa'):
+        if marker in text:
+            extracted = text.split(marker, 1)[1]
+            break
+    if not extracted and ':' in text:
+        extracted = text.split(':', 1)[1]
+    if not extracted and '\uff1a' in text:
+        extracted = text.split('\uff1a', 1)[1]
+    for terminator in ('\u4e2a\u7ae0\u8282', '\u7ae0\u8282', '\u90e8\u5206', '\u6a21\u5757', '\u677f\u5757', '\u9875'):
+        if terminator in extracted:
+            extracted = extracted.split(terminator, 1)[0]
+            break
+    items: list[str] = []
+    if extracted:
+        for part in re.split(r'[,\uff0c\u3001;\uff1b\\/|&]+', extracted):
+            item = re.sub(r'^\d+[.\u3001\)\]]\s*', '', part).strip(' ,.:-_\u3001\u3002\uff1a\uff0c')
+            item = re.sub(r'\d+$', '', item).strip()
+            if item and len(item) <= 24:
+                items.append(item)
+    return list(dict.fromkeys(items)) or fallback
+
+
+def _seedless_bootstrap_library(*args: Any, **kwargs: Any) -> dict[str, Any]:
+    _clear_generated_library_assets()
+    return _ORIGINAL_BOOTSTRAP_LIBRARY(*args, **kwargs)
+
+
+def _apply_prompt_runtime_patches() -> None:
+    _clear_generated_library_assets()
+    ppt_seeds.build_seed_sources = lambda *args, **kwargs: []
+    ppt_seeds.build_template_catalog = lambda *args, **kwargs: []
+    ppt_catalog.build_source_catalog = lambda *args, **kwargs: []
+    ppt_catalog.build_template_catalog = lambda *args, **kwargs: []
+    ppt_page_library.build_seed_slide_catalog = lambda *args, **kwargs: []
+    ppt_page_library.build_seed_component_catalog = lambda *args, **kwargs: []
+    ppt_manager.bootstrap_library = _seedless_bootstrap_library
+    ppt_page_engine._infer_title = _prompt_title
+    ppt_page_engine._infer_sections = _prompt_sections
+    ppt_smart_planner.infer_title = _prompt_title
+    ppt_smart_planner.infer_sections = _prompt_sections
+
+    def _no_seed_demo_page_library(root: str | Path = 'ppt_template_library', refresh: bool = False) -> dict[str, Any]:
+        return {'slide_count': 0, 'component_count': 0, 'template_count': 0, 'page_count': 0, 'source_count': 0}
+
+    ppt_page_engine.seed_demo_page_library = _no_seed_demo_page_library
+    ppt_app_ui.seed_demo_page_library = _no_seed_demo_page_library
+
+
+_ORIGINAL_BOOTSTRAP_LIBRARY = ppt_manager.bootstrap_library
+bootstrap_library = _seedless_bootstrap_library
+_apply_prompt_runtime_patches()
+_apply_prompt_runtime_patches()
+
+from ppt_template_library.manager import load_library_preview_counts
 from ppt_template_library.slide_storage import load_component_catalog, load_slide_catalog, load_slide_summary
 from ppt_template_library.smart_planner import build_deck_plan, build_excel_aware_plan
 from ppt_template_library.smart_renderer import render_smart_deck
