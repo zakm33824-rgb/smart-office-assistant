@@ -1,0 +1,26 @@
+[
+  {
+    "component_id": "map_block-01-table",
+    "component_type": "map",
+    "component_subtype": "map_block_1",
+    "layout_type": "table",
+    "preview_image": "ppt_template_library\\preview\\components\\map_block-01-table.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "map_block-02-table",
+    "component_type": "map",
+    "component_subtype": "map_block_2",
+    "layout_type": "table",
+    "preview_image": "ppt_template_library\\preview\\components\\map_block-02-table.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "map_block-03-timeline",
+    "component_type": "map",
+    "component_subtype": "map_block_3",
+    "layout_type": "timeline",
+    "preview_image": "ppt_template_library\\preview\\components\\map_block-03-timeline.png",
+    "status": "seed"
+  }
+]

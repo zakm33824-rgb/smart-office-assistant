@@ -1,0 +1,30 @@
+[
+  {
+    "template_id": "scaffold-0002",
+    "template_name": "Awesome Presentations",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0002.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0139",
+    "template_name": "GitHub topic: presentation",
+    "quality_score": 74,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0139.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0140",
+    "template_name": "GitHub topic: presentation-template",
+    "quality_score": 74,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0140.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0141",
+    "template_name": "GitHub topic: presentation-templates",
+    "quality_score": 74,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0141.png",
+    "status": "scaffold"
+  }
+]

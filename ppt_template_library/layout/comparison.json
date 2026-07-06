@@ -1,0 +1,66 @@
+[
+  {
+    "slide_id": "comparison_slide-01-technology",
+    "slide_type": "comparison",
+    "slide_subtype": "before_after",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\comparison_slide-01-technology.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "comparison_slide-02-academic",
+    "slide_type": "comparison",
+    "slide_subtype": "two_column_compare",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\comparison_slide-02-academic.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "comparison_slide-03-creative",
+    "slide_type": "comparison",
+    "slide_subtype": "product_compare",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\comparison_slide-03-creative.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "comparison_slide-04-government",
+    "slide_type": "comparison",
+    "slide_subtype": "pros_cons",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\comparison_slide-04-government.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "comparison_slide-05-finance",
+    "slide_type": "comparison",
+    "slide_subtype": "competitive_compare",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\comparison_slide-05-finance.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "comparison_slide-06-minimal",
+    "slide_type": "comparison",
+    "slide_subtype": "feature_compare",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\comparison_slide-06-minimal.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "comparison_slide-07-dark",
+    "slide_type": "comparison",
+    "slide_subtype": "before_after",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\comparison_slide-07-dark.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "comparison_slide-08-business",
+    "slide_type": "comparison",
+    "slide_subtype": "two_column_compare",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\comparison_slide-08-business.png",
+    "status": "seed"
+  }
+]

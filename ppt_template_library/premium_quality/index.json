@@ -1,0 +1,402 @@
+[
+  {
+    "template_id": "scaffold-0001",
+    "template_name": "Awesome Marp Template",
+    "quality_score": 100,
+    "license": "MIT",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0001.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0002",
+    "template_name": "Awesome Presentations",
+    "quality_score": 100,
+    "license": "MIT",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0002.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0003",
+    "template_name": "BIT PPT Template",
+    "quality_score": 100,
+    "license": "MIT",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0003.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0004",
+    "template_name": "Chuk MCP PPTX",
+    "quality_score": 100,
+    "license": "Apache-2.0",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0004.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0005",
+    "template_name": "Claude Skill Slide Kit",
+    "quality_score": 100,
+    "license": "MIT",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0005.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0006",
+    "template_name": "Fake Beamer",
+    "quality_score": 100,
+    "license": "MIT",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0006.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0007",
+    "template_name": "FancyBeamer",
+    "quality_score": 100,
+    "license": "CC0-1.0",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0007.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0008",
+    "template_name": "GitHub Social Preview PPTX Template",
+    "quality_score": 100,
+    "license": "Apache-2.0",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0008.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0009",
+    "template_name": "HHU Slides Template",
+    "quality_score": 100,
+    "license": "LGPL-2.1",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0009.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0010",
+    "template_name": "Marp",
+    "quality_score": 100,
+    "license": "MIT",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0010.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0011",
+    "template_name": "Marp Slides Template",
+    "quality_score": 100,
+    "license": "MIT",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0011.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0012",
+    "template_name": "Marp Slides Template",
+    "quality_score": 100,
+    "license": "MIT",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0012.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0013",
+    "template_name": "McKinsey PPTX",
+    "quality_score": 100,
+    "license": "MIT",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0013.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0014",
+    "template_name": "Metropolis / mtheme",
+    "quality_score": 100,
+    "license": "CC-BY-SA-4.0",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0014.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0015",
+    "template_name": "Moloch",
+    "quality_score": 100,
+    "license": "CC-BY-SA-4.0",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0015.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0016",
+    "template_name": "NYPL Marp Template",
+    "quality_score": 100,
+    "license": "review required",
+    "commercial_use": "uncertain",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0016.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0017",
+    "template_name": "PPT Agent",
+    "quality_score": 100,
+    "license": "review required",
+    "commercial_use": "uncertain",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0017.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0018",
+    "template_name": "PPT Master",
+    "quality_score": 100,
+    "license": "MIT",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0018.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0020",
+    "template_name": "PPTX Masters",
+    "quality_score": 100,
+    "license": "MIT",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0020.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0022",
+    "template_name": "Primer Presentations",
+    "quality_score": 100,
+    "license": "review required",
+    "commercial_use": "uncertain",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0022.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0023",
+    "template_name": "Pure Minimalistic Beamer",
+    "quality_score": 100,
+    "license": "GPL-3.0",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0023.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0024",
+    "template_name": "Quarto RevealJS Clean",
+    "quality_score": 100,
+    "license": "MIT",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0024.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0025",
+    "template_name": "Reveal JS Themes",
+    "quality_score": 100,
+    "license": "review required",
+    "commercial_use": "uncertain",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0025.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0027",
+    "template_name": "RevealJS Template",
+    "quality_score": 100,
+    "license": "review required",
+    "commercial_use": "uncertain",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0027.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0028",
+    "template_name": "SAP Presentation Template",
+    "quality_score": 100,
+    "license": "review required",
+    "commercial_use": "uncertain",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0028.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0029",
+    "template_name": "ShanghaiTech PPT Template",
+    "quality_score": 100,
+    "license": "review required",
+    "commercial_use": "uncertain",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0029.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0030",
+    "template_name": "Slide Templates",
+    "quality_score": 100,
+    "license": "review required",
+    "commercial_use": "uncertain",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0030.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0031",
+    "template_name": "Slidev",
+    "quality_score": 100,
+    "license": "MIT",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0031.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0032",
+    "template_name": "Tidy RevealJS",
+    "quality_score": 100,
+    "license": "review required",
+    "commercial_use": "uncertain",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0032.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0019",
+    "template_name": "ppt_themes",
+    "quality_score": 100,
+    "license": "MIT",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0019.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0021",
+    "template_name": "pptx-template",
+    "quality_score": 100,
+    "license": "Apache-2.0",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0021.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0026",
+    "template_name": "reveal.js",
+    "quality_score": 100,
+    "license": "MIT",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0026.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0034",
+    "template_name": "Presentation Studio MCP",
+    "quality_score": 98,
+    "license": "NOASSERTION",
+    "commercial_use": "uncertain",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0034.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0033",
+    "template_name": "pptxtemplates",
+    "quality_score": 98,
+    "license": "NOASSERTION",
+    "commercial_use": "uncertain",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0033.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0035",
+    "template_name": "GBIF PowerPoint Template",
+    "quality_score": 97,
+    "license": "review required",
+    "commercial_use": "restricted",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0035.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0036",
+    "template_name": "SlideEgg Free PowerPoint Templates",
+    "quality_score": 97,
+    "license": "site_terms",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0036.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0037",
+    "template_name": "GordenPPTSkill",
+    "quality_score": 94,
+    "license": "personal use only",
+    "commercial_use": "restricted",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0037.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0038",
+    "template_name": "THU-PPT-Theme",
+    "quality_score": 94,
+    "license": "CC-BY-NC-SA-4.0",
+    "commercial_use": "restricted",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0038.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0039",
+    "template_name": "LibreTemplates Financial Theme",
+    "quality_score": 92,
+    "license": "Libretemplates license",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0039.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0040",
+    "template_name": "SlideStart Corporate",
+    "quality_score": 92,
+    "license": "commercial",
+    "commercial_use": "allowed",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0040.png",
+    "local_path": "",
+    "status": "scaffold"
+  }
+]

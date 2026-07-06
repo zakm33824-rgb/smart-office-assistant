@@ -1,0 +1,26 @@
+[
+  {
+    "component_id": "product_card-01-table",
+    "component_type": "product_card",
+    "component_subtype": "product_card_1",
+    "layout_type": "table",
+    "preview_image": "ppt_template_library\\preview\\components\\product_card-01-table.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "product_card-02-table",
+    "component_type": "product_card",
+    "component_subtype": "product_card_2",
+    "layout_type": "table",
+    "preview_image": "ppt_template_library\\preview\\components\\product_card-02-table.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "product_card-03-table",
+    "component_type": "product_card",
+    "component_subtype": "product_card_3",
+    "layout_type": "table",
+    "preview_image": "ppt_template_library\\preview\\components\\product_card-03-table.png",
+    "status": "seed"
+  }
+]

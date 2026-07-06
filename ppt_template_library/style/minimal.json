@@ -1,0 +1,30 @@
+[
+  {
+    "template_id": "scaffold-0011",
+    "template_name": "Marp Slides Template",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0011.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0015",
+    "template_name": "Moloch",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0015.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0023",
+    "template_name": "Pure Minimalistic Beamer",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0023.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0024",
+    "template_name": "Quarto RevealJS Clean",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0024.png",
+    "status": "scaffold"
+  }
+]

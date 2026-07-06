@@ -1,0 +1,66 @@
+[
+  {
+    "slide_id": "kpi_slide-01-academic",
+    "slide_type": "kpi",
+    "slide_subtype": "kpi_cards",
+    "overall_quality_score": 94,
+    "preview_image": "ppt_template_library\\preview\\slides\\kpi_slide-01-academic.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "kpi_slide-02-creative",
+    "slide_type": "kpi",
+    "slide_subtype": "kpi_overview",
+    "overall_quality_score": 94,
+    "preview_image": "ppt_template_library\\preview\\slides\\kpi_slide-02-creative.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "kpi_slide-03-government",
+    "slide_type": "kpi",
+    "slide_subtype": "kpi_trend",
+    "overall_quality_score": 94,
+    "preview_image": "ppt_template_library\\preview\\slides\\kpi_slide-03-government.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "kpi_slide-04-finance",
+    "slide_type": "kpi",
+    "slide_subtype": "metric_board",
+    "overall_quality_score": 94,
+    "preview_image": "ppt_template_library\\preview\\slides\\kpi_slide-04-finance.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "kpi_slide-05-minimal",
+    "slide_type": "kpi",
+    "slide_subtype": "metrics_detail",
+    "overall_quality_score": 94,
+    "preview_image": "ppt_template_library\\preview\\slides\\kpi_slide-05-minimal.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "kpi_slide-06-dark",
+    "slide_type": "kpi",
+    "slide_subtype": "performance_wall",
+    "overall_quality_score": 94,
+    "preview_image": "ppt_template_library\\preview\\slides\\kpi_slide-06-dark.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "kpi_slide-07-business",
+    "slide_type": "kpi",
+    "slide_subtype": "kpi_cards",
+    "overall_quality_score": 94,
+    "preview_image": "ppt_template_library\\preview\\slides\\kpi_slide-07-business.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "kpi_slide-08-technology",
+    "slide_type": "kpi",
+    "slide_subtype": "kpi_overview",
+    "overall_quality_score": 94,
+    "preview_image": "ppt_template_library\\preview\\slides\\kpi_slide-08-technology.png",
+    "status": "seed"
+  }
+]

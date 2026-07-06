@@ -1,0 +1,66 @@
+[
+  {
+    "slide_id": "people_slide-06-academic",
+    "slide_type": "people",
+    "slide_subtype": "member_cards",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\people_slide-06-academic.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "people_slide-01-finance",
+    "slide_type": "people",
+    "slide_subtype": "team_intro",
+    "overall_quality_score": 87,
+    "preview_image": "ppt_template_library\\preview\\slides\\people_slide-01-finance.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "people_slide-02-minimal",
+    "slide_type": "people",
+    "slide_subtype": "leader_intro",
+    "overall_quality_score": 87,
+    "preview_image": "ppt_template_library\\preview\\slides\\people_slide-02-minimal.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "people_slide-03-dark",
+    "slide_type": "people",
+    "slide_subtype": "expert_intro",
+    "overall_quality_score": 87,
+    "preview_image": "ppt_template_library\\preview\\slides\\people_slide-03-dark.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "people_slide-04-business",
+    "slide_type": "people",
+    "slide_subtype": "staff_intro",
+    "overall_quality_score": 87,
+    "preview_image": "ppt_template_library\\preview\\slides\\people_slide-04-business.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "people_slide-05-technology",
+    "slide_type": "people",
+    "slide_subtype": "speaker_intro",
+    "overall_quality_score": 87,
+    "preview_image": "ppt_template_library\\preview\\slides\\people_slide-05-technology.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "people_slide-07-creative",
+    "slide_type": "people",
+    "slide_subtype": "team_intro",
+    "overall_quality_score": 87,
+    "preview_image": "ppt_template_library\\preview\\slides\\people_slide-07-creative.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "people_slide-08-government",
+    "slide_type": "people",
+    "slide_subtype": "leader_intro",
+    "overall_quality_score": 87,
+    "preview_image": "ppt_template_library\\preview\\slides\\people_slide-08-government.png",
+    "status": "seed"
+  }
+]

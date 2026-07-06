@@ -1,0 +1,66 @@
+[
+  {
+    "slide_id": "table_slide-03-business",
+    "slide_type": "table",
+    "slide_subtype": "comparison_table",
+    "overall_quality_score": 89,
+    "preview_image": "ppt_template_library\\preview\\slides\\table_slide-03-business.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "table_slide-01-minimal",
+    "slide_type": "table",
+    "slide_subtype": "data_table",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\table_slide-01-minimal.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "table_slide-02-dark",
+    "slide_type": "table",
+    "slide_subtype": "financial_table",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\table_slide-02-dark.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "table_slide-04-technology",
+    "slide_type": "table",
+    "slide_subtype": "ranking_table",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\table_slide-04-technology.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "table_slide-05-academic",
+    "slide_type": "table",
+    "slide_subtype": "plan_table",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\table_slide-05-academic.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "table_slide-06-creative",
+    "slide_type": "table",
+    "slide_subtype": "quotation_table",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\table_slide-06-creative.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "table_slide-07-government",
+    "slide_type": "table",
+    "slide_subtype": "data_table",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\table_slide-07-government.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "table_slide-08-finance",
+    "slide_type": "table",
+    "slide_subtype": "financial_table",
+    "overall_quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\slides\\table_slide-08-finance.png",
+    "status": "seed"
+  }
+]

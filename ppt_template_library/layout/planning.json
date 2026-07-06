@@ -1,0 +1,66 @@
+[
+  {
+    "slide_id": "planning_slide-06-technology",
+    "slide_type": "plan",
+    "slide_subtype": "milestone_plan",
+    "overall_quality_score": 92,
+    "preview_image": "ppt_template_library\\preview\\slides\\planning_slide-06-technology.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "planning_slide-01-government",
+    "slide_type": "plan",
+    "slide_subtype": "gantt",
+    "overall_quality_score": 91,
+    "preview_image": "ppt_template_library\\preview\\slides\\planning_slide-01-government.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "planning_slide-02-finance",
+    "slide_type": "plan",
+    "slide_subtype": "annual_plan",
+    "overall_quality_score": 91,
+    "preview_image": "ppt_template_library\\preview\\slides\\planning_slide-02-finance.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "planning_slide-03-minimal",
+    "slide_type": "plan",
+    "slide_subtype": "quarterly_plan",
+    "overall_quality_score": 91,
+    "preview_image": "ppt_template_library\\preview\\slides\\planning_slide-03-minimal.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "planning_slide-04-dark",
+    "slide_type": "plan",
+    "slide_subtype": "task_plan",
+    "overall_quality_score": 91,
+    "preview_image": "ppt_template_library\\preview\\slides\\planning_slide-04-dark.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "planning_slide-05-business",
+    "slide_type": "plan",
+    "slide_subtype": "roadmap_plan",
+    "overall_quality_score": 91,
+    "preview_image": "ppt_template_library\\preview\\slides\\planning_slide-05-business.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "planning_slide-07-academic",
+    "slide_type": "plan",
+    "slide_subtype": "gantt",
+    "overall_quality_score": 91,
+    "preview_image": "ppt_template_library\\preview\\slides\\planning_slide-07-academic.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "planning_slide-08-creative",
+    "slide_type": "plan",
+    "slide_subtype": "annual_plan",
+    "overall_quality_score": 91,
+    "preview_image": "ppt_template_library\\preview\\slides\\planning_slide-08-creative.png",
+    "status": "seed"
+  }
+]

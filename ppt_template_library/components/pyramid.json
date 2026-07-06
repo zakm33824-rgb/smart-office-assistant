@@ -1,0 +1,26 @@
+[
+  {
+    "component_id": "pyramid_block-01-chart",
+    "component_type": "pyramid",
+    "component_subtype": "pyramid_block_1",
+    "layout_type": "chart",
+    "preview_image": "ppt_template_library\\preview\\components\\pyramid_block-01-chart.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "pyramid_block-02-chart",
+    "component_type": "pyramid",
+    "component_subtype": "pyramid_block_2",
+    "layout_type": "chart",
+    "preview_image": "ppt_template_library\\preview\\components\\pyramid_block-02-chart.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "pyramid_block-03-chart",
+    "component_type": "pyramid",
+    "component_subtype": "pyramid_block_3",
+    "layout_type": "chart",
+    "preview_image": "ppt_template_library\\preview\\components\\pyramid_block-03-chart.png",
+    "status": "seed"
+  }
+]

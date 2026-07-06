@@ -1,0 +1,66 @@
+[
+  {
+    "slide_id": "product_slide-03-business",
+    "slide_type": "product",
+    "slide_subtype": "product_roadmap",
+    "overall_quality_score": 93,
+    "preview_image": "ppt_template_library\\preview\\slides\\product_slide-03-business.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "product_slide-01-minimal",
+    "slide_type": "product",
+    "slide_subtype": "product_intro",
+    "overall_quality_score": 92,
+    "preview_image": "ppt_template_library\\preview\\slides\\product_slide-01-minimal.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "product_slide-02-dark",
+    "slide_type": "product",
+    "slide_subtype": "feature_matrix",
+    "overall_quality_score": 92,
+    "preview_image": "ppt_template_library\\preview\\slides\\product_slide-02-dark.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "product_slide-04-technology",
+    "slide_type": "product",
+    "slide_subtype": "parameter_sheet",
+    "overall_quality_score": 92,
+    "preview_image": "ppt_template_library\\preview\\slides\\product_slide-04-technology.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "product_slide-05-academic",
+    "slide_type": "product",
+    "slide_subtype": "advantage_map",
+    "overall_quality_score": 92,
+    "preview_image": "ppt_template_library\\preview\\slides\\product_slide-05-academic.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "product_slide-06-creative",
+    "slide_type": "product",
+    "slide_subtype": "release_plan",
+    "overall_quality_score": 92,
+    "preview_image": "ppt_template_library\\preview\\slides\\product_slide-06-creative.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "product_slide-07-government",
+    "slide_type": "product",
+    "slide_subtype": "product_intro",
+    "overall_quality_score": 92,
+    "preview_image": "ppt_template_library\\preview\\slides\\product_slide-07-government.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "product_slide-08-finance",
+    "slide_type": "product",
+    "slide_subtype": "feature_matrix",
+    "overall_quality_score": 92,
+    "preview_image": "ppt_template_library\\preview\\slides\\product_slide-08-finance.png",
+    "status": "seed"
+  }
+]

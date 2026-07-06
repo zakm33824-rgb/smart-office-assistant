@@ -1,0 +1,32 @@
+[
+  {
+    "template_id": "scaffold-0035",
+    "template_name": "GBIF PowerPoint Template",
+    "quality_score": 97,
+    "license": "review required",
+    "commercial_use": "restricted",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0035.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0037",
+    "template_name": "GordenPPTSkill",
+    "quality_score": 94,
+    "license": "personal use only",
+    "commercial_use": "restricted",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0037.png",
+    "local_path": "",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0038",
+    "template_name": "THU-PPT-Theme",
+    "quality_score": 94,
+    "license": "CC-BY-NC-SA-4.0",
+    "commercial_use": "restricted",
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0038.png",
+    "local_path": "",
+    "status": "scaffold"
+  }
+]

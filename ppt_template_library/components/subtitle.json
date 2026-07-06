@@ -1,0 +1,26 @@
+[
+  {
+    "component_id": "subtitle_block-01-cover",
+    "component_type": "subtitle",
+    "component_subtype": "subtitle_block_1",
+    "layout_type": "cover",
+    "preview_image": "ppt_template_library\\preview\\components\\subtitle_block-01-cover.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "subtitle_block-02-cover",
+    "component_type": "subtitle",
+    "component_subtype": "subtitle_block_2",
+    "layout_type": "cover",
+    "preview_image": "ppt_template_library\\preview\\components\\subtitle_block-02-cover.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "subtitle_block-03-cover",
+    "component_type": "subtitle",
+    "component_subtype": "subtitle_block_3",
+    "layout_type": "cover",
+    "preview_image": "ppt_template_library\\preview\\components\\subtitle_block-03-cover.png",
+    "status": "seed"
+  }
+]

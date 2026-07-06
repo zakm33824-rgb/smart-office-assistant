@@ -1,0 +1,26 @@
+[
+  {
+    "component_id": "page_number_block-01-process",
+    "component_type": "page_number",
+    "component_subtype": "page_number_block_1",
+    "layout_type": "process",
+    "preview_image": "ppt_template_library\\preview\\components\\page_number_block-01-process.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "page_number_block-02-process",
+    "component_type": "page_number",
+    "component_subtype": "page_number_block_2",
+    "layout_type": "process",
+    "preview_image": "ppt_template_library\\preview\\components\\page_number_block-02-process.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "page_number_block-03-process",
+    "component_type": "page_number",
+    "component_subtype": "page_number_block_3",
+    "layout_type": "process",
+    "preview_image": "ppt_template_library\\preview\\components\\page_number_block-03-process.png",
+    "status": "seed"
+  }
+]

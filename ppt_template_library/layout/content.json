@@ -1,0 +1,66 @@
+[
+  {
+    "slide_id": "content_slide-03-finance",
+    "slide_type": "content",
+    "slide_subtype": "card_grid",
+    "overall_quality_score": 87,
+    "preview_image": "ppt_template_library\\preview\\slides\\content_slide-03-finance.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "content_slide-06-business",
+    "slide_type": "content",
+    "slide_subtype": "quote_card",
+    "overall_quality_score": 87,
+    "preview_image": "ppt_template_library\\preview\\slides\\content_slide-06-business.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "content_slide-01-creative",
+    "slide_type": "content",
+    "slide_subtype": "two_column",
+    "overall_quality_score": 86,
+    "preview_image": "ppt_template_library\\preview\\slides\\content_slide-01-creative.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "content_slide-02-government",
+    "slide_type": "content",
+    "slide_subtype": "three_column",
+    "overall_quality_score": 86,
+    "preview_image": "ppt_template_library\\preview\\slides\\content_slide-02-government.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "content_slide-04-minimal",
+    "slide_type": "content",
+    "slide_subtype": "text_image",
+    "overall_quality_score": 86,
+    "preview_image": "ppt_template_library\\preview\\slides\\content_slide-04-minimal.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "content_slide-05-dark",
+    "slide_type": "content",
+    "slide_subtype": "story_card",
+    "overall_quality_score": 86,
+    "preview_image": "ppt_template_library\\preview\\slides\\content_slide-05-dark.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "content_slide-07-technology",
+    "slide_type": "content",
+    "slide_subtype": "two_column",
+    "overall_quality_score": 86,
+    "preview_image": "ppt_template_library\\preview\\slides\\content_slide-07-technology.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "content_slide-08-academic",
+    "slide_type": "content",
+    "slide_subtype": "three_column",
+    "overall_quality_score": 86,
+    "preview_image": "ppt_template_library\\preview\\slides\\content_slide-08-academic.png",
+    "status": "seed"
+  }
+]

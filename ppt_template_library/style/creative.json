@@ -1,0 +1,44 @@
+[
+  {
+    "template_id": "scaffold-0012",
+    "template_name": "Marp Slides Template",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0012.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0079",
+    "template_name": "GitHub topic: art",
+    "quality_score": 74,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0079.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0084",
+    "template_name": "GitHub topic: chart",
+    "quality_score": 74,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0084.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0106",
+    "template_name": "GitHub topic: gantt-chart",
+    "quality_score": 74,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0106.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0145",
+    "template_name": "GitHub topic: quarterly-report",
+    "quality_score": 74,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0145.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0161",
+    "template_name": "GitHub topic: startup",
+    "quality_score": 74,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0161.png",
+    "status": "scaffold"
+  }
+]

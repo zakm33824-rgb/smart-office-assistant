@@ -1,0 +1,26 @@
+[
+  {
+    "component_id": "swot_block-01-data-analysis",
+    "component_type": "swot",
+    "component_subtype": "swot_block_1",
+    "layout_type": "data_analysis",
+    "preview_image": "ppt_template_library\\preview\\components\\swot_block-01-data-analysis.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "swot_block-02-data-analysis",
+    "component_type": "swot",
+    "component_subtype": "swot_block_2",
+    "layout_type": "data_analysis",
+    "preview_image": "ppt_template_library\\preview\\components\\swot_block-02-data-analysis.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "swot_block-03-data-analysis",
+    "component_type": "swot",
+    "component_subtype": "swot_block_3",
+    "layout_type": "data_analysis",
+    "preview_image": "ppt_template_library\\preview\\components\\swot_block-03-data-analysis.png",
+    "status": "seed"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "template_id": "scaffold-0014",
+    "template_name": "Metropolis / mtheme",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0014.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0015",
+    "template_name": "Moloch",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0015.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0023",
+    "template_name": "Pure Minimalistic Beamer",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0023.png",
+    "status": "scaffold"
+  }
+]

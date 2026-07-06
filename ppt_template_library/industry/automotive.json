@@ -1,0 +1,58 @@
+[
+  {
+    "template_id": "scaffold-0008",
+    "template_name": "GitHub Social Preview PPTX Template",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0008.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0024",
+    "template_name": "Quarto RevealJS Clean",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0024.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0025",
+    "template_name": "Reveal JS Themes",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0025.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0027",
+    "template_name": "RevealJS Template",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0027.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0028",
+    "template_name": "SAP Presentation Template",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0028.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0031",
+    "template_name": "Slidev",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0031.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0032",
+    "template_name": "Tidy RevealJS",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0032.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0026",
+    "template_name": "reveal.js",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0026.png",
+    "status": "scaffold"
+  }
+]

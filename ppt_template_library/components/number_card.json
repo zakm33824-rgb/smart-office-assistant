@@ -1,0 +1,26 @@
+[
+  {
+    "component_id": "number_card-01-agenda",
+    "component_type": "number_card",
+    "component_subtype": "number_card_1",
+    "layout_type": "agenda",
+    "preview_image": "ppt_template_library\\preview\\components\\number_card-01-agenda.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "number_card-02-agenda",
+    "component_type": "number_card",
+    "component_subtype": "number_card_2",
+    "layout_type": "agenda",
+    "preview_image": "ppt_template_library\\preview\\components\\number_card-02-agenda.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "number_card-03-agenda",
+    "component_type": "number_card",
+    "component_subtype": "number_card_3",
+    "layout_type": "agenda",
+    "preview_image": "ppt_template_library\\preview\\components\\number_card-03-agenda.png",
+    "status": "seed"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "slide_id": "dashboard_slide-01-technology",
+    "slide_type": "dashboard",
+    "slide_subtype": "executive_dashboard",
+    "overall_quality_score": 96,
+    "preview_image": "ppt_template_library\\preview\\slides\\dashboard_slide-01-technology.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "dashboard_slide-02-academic",
+    "slide_type": "dashboard",
+    "slide_subtype": "sales_dashboard",
+    "overall_quality_score": 96,
+    "preview_image": "ppt_template_library\\preview\\slides\\dashboard_slide-02-academic.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "dashboard_slide-03-creative",
+    "slide_type": "dashboard",
+    "slide_subtype": "ops_dashboard",
+    "overall_quality_score": 96,
+    "preview_image": "ppt_template_library\\preview\\slides\\dashboard_slide-03-creative.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "dashboard_slide-05-finance",
+    "slide_type": "dashboard",
+    "slide_subtype": "kpi_wall",
+    "overall_quality_score": 96,
+    "preview_image": "ppt_template_library\\preview\\slides\\dashboard_slide-05-finance.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "dashboard_slide-06-minimal",
+    "slide_type": "dashboard",
+    "slide_subtype": "monitoring_panel",
+    "overall_quality_score": 96,
+    "preview_image": "ppt_template_library\\preview\\slides\\dashboard_slide-06-minimal.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "dashboard_slide-08-business",
+    "slide_type": "dashboard",
+    "slide_subtype": "sales_dashboard",
+    "overall_quality_score": 96,
+    "preview_image": "ppt_template_library\\preview\\slides\\dashboard_slide-08-business.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "dashboard_slide-04-government",
+    "slide_type": "dashboard",
+    "slide_subtype": "finance_dashboard",
+    "overall_quality_score": 95,
+    "preview_image": "ppt_template_library\\preview\\slides\\dashboard_slide-04-government.png",
+    "status": "seed"
+  },
+  {
+    "slide_id": "dashboard_slide-07-dark",
+    "slide_type": "dashboard",
+    "slide_subtype": "executive_dashboard",
+    "overall_quality_score": 95,
+    "preview_image": "ppt_template_library\\preview\\slides\\dashboard_slide-07-dark.png",
+    "status": "seed"
+  }
+]

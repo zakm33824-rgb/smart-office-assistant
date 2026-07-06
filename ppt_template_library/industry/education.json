@@ -1,0 +1,170 @@
+[
+  {
+    "template_id": "scaffold-0003",
+    "template_name": "BIT PPT Template",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0003.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0005",
+    "template_name": "Claude Skill Slide Kit",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0005.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0007",
+    "template_name": "FancyBeamer",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0007.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0009",
+    "template_name": "HHU Slides Template",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0009.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0030",
+    "template_name": "Slide Templates",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0030.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0035",
+    "template_name": "GBIF PowerPoint Template",
+    "quality_score": 97,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0035.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0038",
+    "template_name": "THU-PPT-Theme",
+    "quality_score": 94,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0038.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0041",
+    "template_name": "51PPT模板网",
+    "quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0041.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0043",
+    "template_name": "LFPPT",
+    "quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0043.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0050",
+    "template_name": "SlidesCarnival",
+    "quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0050.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0051",
+    "template_name": "SlidesCarnival Japan",
+    "quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0051.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0053",
+    "template_name": "Slidesgo",
+    "quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0053.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0054",
+    "template_name": "Slidesgo Japan",
+    "quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0054.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0055",
+    "template_name": "Slidesgo Korea",
+    "quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0055.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0060",
+    "template_name": "Visme Presentations",
+    "quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0060.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0062",
+    "template_name": "第一PPT",
+    "quality_score": 88,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0062.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0067",
+    "template_name": "Canva PPT (ja)",
+    "quality_score": 86,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0067.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0068",
+    "template_name": "Canva PPT (ko)",
+    "quality_score": 86,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0068.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0070",
+    "template_name": "Design AC Presentation",
+    "quality_score": 86,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0070.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0072",
+    "template_name": "MiriCanvas Presentations",
+    "quality_score": 86,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0072.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0097",
+    "template_name": "GitHub topic: education",
+    "quality_score": 74,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0097.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0118",
+    "template_name": "GitHub topic: lecture",
+    "quality_score": 74,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0118.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0148",
+    "template_name": "GitHub topic: research",
+    "quality_score": 74,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0148.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0168",
+    "template_name": "GitHub topic: thesis",
+    "quality_score": 74,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0168.png",
+    "status": "scaffold"
+  }
+]

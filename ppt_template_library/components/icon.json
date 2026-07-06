@@ -1,0 +1,26 @@
+[
+  {
+    "component_id": "icon_block-01-process",
+    "component_type": "icon",
+    "component_subtype": "icon_block_1",
+    "layout_type": "process",
+    "preview_image": "ppt_template_library\\preview\\components\\icon_block-01-process.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "icon_block-02-process",
+    "component_type": "icon",
+    "component_subtype": "icon_block_2",
+    "layout_type": "process",
+    "preview_image": "ppt_template_library\\preview\\components\\icon_block-02-process.png",
+    "status": "seed"
+  },
+  {
+    "component_id": "icon_block-03-process",
+    "component_type": "icon",
+    "component_subtype": "icon_block_3",
+    "layout_type": "process",
+    "preview_image": "ppt_template_library\\preview\\components\\icon_block-03-process.png",
+    "status": "seed"
+  }
+]

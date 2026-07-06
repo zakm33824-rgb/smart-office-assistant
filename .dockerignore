@@ -1,0 +1,12 @@
+.git
+.gitrepo
+.agents
+.streamlit/secrets.toml
+__pycache__/
+.pytest_cache/
+out/
+outputs/
+*.pptx
+*.xlsx
+*.csv
+*.log

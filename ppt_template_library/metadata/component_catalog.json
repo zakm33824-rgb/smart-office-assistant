@@ -1,0 +1,2585 @@
+[
+  {
+    "component_id": "title_block-01-cover",
+    "component_type": "title",
+    "component_subtype": "title_block_1",
+    "source_slide_id": "cover_slide-01-business",
+    "layout_type": "cover",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "business",
+    "color_token": "#1B3756",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\title_block-01-cover.png",
+    "metadata_json": {
+      "tags": [
+        "title",
+        "cover",
+        "business",
+        "finance"
+      ],
+      "recommended_usage": "title_block",
+      "source_layout_type": "cover",
+      "source_slide_id": "cover_slide-01-business"
+    },
+    "status": "seed",
+    "tags": [
+      "title",
+      "cover",
+      "business",
+      "finance"
+    ],
+    "tags_json": [
+      "title",
+      "cover",
+      "business",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "title_block-02-cover",
+    "component_type": "title",
+    "component_subtype": "title_block_2",
+    "source_slide_id": "cover_slide-02-technology",
+    "layout_type": "cover",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "technology",
+    "color_token": "#102A43",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\title_block-02-cover.png",
+    "metadata_json": {
+      "tags": [
+        "title",
+        "cover",
+        "technology"
+      ],
+      "recommended_usage": "title_block",
+      "source_layout_type": "cover",
+      "source_slide_id": "cover_slide-02-technology"
+    },
+    "status": "seed",
+    "tags": [
+      "title",
+      "cover",
+      "technology"
+    ],
+    "tags_json": [
+      "title",
+      "cover",
+      "technology"
+    ]
+  },
+  {
+    "component_id": "title_block-03-cover",
+    "component_type": "title",
+    "component_subtype": "title_block_3",
+    "source_slide_id": "cover_slide-03-academic",
+    "layout_type": "cover",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "academic",
+    "color_token": "#4A427C",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\title_block-03-cover.png",
+    "metadata_json": {
+      "tags": [
+        "title",
+        "cover",
+        "academic",
+        "education"
+      ],
+      "recommended_usage": "title_block",
+      "source_layout_type": "cover",
+      "source_slide_id": "cover_slide-03-academic"
+    },
+    "status": "seed",
+    "tags": [
+      "title",
+      "cover",
+      "academic",
+      "education"
+    ],
+    "tags_json": [
+      "title",
+      "cover",
+      "academic",
+      "education"
+    ]
+  },
+  {
+    "component_id": "subtitle_block-01-cover",
+    "component_type": "subtitle",
+    "component_subtype": "subtitle_block_1",
+    "source_slide_id": "cover_slide-04-creative",
+    "layout_type": "cover",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "creative",
+    "color_token": "#164E63",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\subtitle_block-01-cover.png",
+    "metadata_json": {
+      "tags": [
+        "subtitle",
+        "cover",
+        "creative",
+        "marketing"
+      ],
+      "recommended_usage": "subtitle_block",
+      "source_layout_type": "cover",
+      "source_slide_id": "cover_slide-04-creative"
+    },
+    "status": "seed",
+    "tags": [
+      "subtitle",
+      "cover",
+      "creative",
+      "marketing"
+    ],
+    "tags_json": [
+      "subtitle",
+      "cover",
+      "creative",
+      "marketing"
+    ]
+  },
+  {
+    "component_id": "subtitle_block-02-cover",
+    "component_type": "subtitle",
+    "component_subtype": "subtitle_block_2",
+    "source_slide_id": "cover_slide-05-government",
+    "layout_type": "cover",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "government",
+    "color_token": "#7F1D1D",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\subtitle_block-02-cover.png",
+    "metadata_json": {
+      "tags": [
+        "subtitle",
+        "cover",
+        "government"
+      ],
+      "recommended_usage": "subtitle_block",
+      "source_layout_type": "cover",
+      "source_slide_id": "cover_slide-05-government"
+    },
+    "status": "seed",
+    "tags": [
+      "subtitle",
+      "cover",
+      "government"
+    ],
+    "tags_json": [
+      "subtitle",
+      "cover",
+      "government"
+    ]
+  },
+  {
+    "component_id": "subtitle_block-03-cover",
+    "component_type": "subtitle",
+    "component_subtype": "subtitle_block_3",
+    "source_slide_id": "cover_slide-06-finance",
+    "layout_type": "cover",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "finance",
+    "color_token": "#0F5132",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\subtitle_block-03-cover.png",
+    "metadata_json": {
+      "tags": [
+        "subtitle",
+        "cover",
+        "finance"
+      ],
+      "recommended_usage": "subtitle_block",
+      "source_layout_type": "cover",
+      "source_slide_id": "cover_slide-06-finance"
+    },
+    "status": "seed",
+    "tags": [
+      "subtitle",
+      "cover",
+      "finance"
+    ],
+    "tags_json": [
+      "subtitle",
+      "cover",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "text_block-01-cover",
+    "component_type": "text",
+    "component_subtype": "text_block_1",
+    "source_slide_id": "cover_slide-07-minimal",
+    "layout_type": "cover",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "minimal",
+    "color_token": "#334155",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\text_block-01-cover.png",
+    "metadata_json": {
+      "tags": [
+        "text",
+        "cover",
+        "minimal",
+        "consulting"
+      ],
+      "recommended_usage": "text_block",
+      "source_layout_type": "cover",
+      "source_slide_id": "cover_slide-07-minimal"
+    },
+    "status": "seed",
+    "tags": [
+      "text",
+      "cover",
+      "minimal",
+      "consulting"
+    ],
+    "tags_json": [
+      "text",
+      "cover",
+      "minimal",
+      "consulting"
+    ]
+  },
+  {
+    "component_id": "text_block-02-cover",
+    "component_type": "text",
+    "component_subtype": "text_block_2",
+    "source_slide_id": "cover_slide-08-dark",
+    "layout_type": "cover",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "dark",
+    "color_token": "#E5E7EB",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\text_block-02-cover.png",
+    "metadata_json": {
+      "tags": [
+        "text",
+        "cover",
+        "dark",
+        "ai"
+      ],
+      "recommended_usage": "text_block",
+      "source_layout_type": "cover",
+      "source_slide_id": "cover_slide-08-dark"
+    },
+    "status": "seed",
+    "tags": [
+      "text",
+      "cover",
+      "dark",
+      "ai"
+    ],
+    "tags_json": [
+      "text",
+      "cover",
+      "dark",
+      "ai"
+    ]
+  },
+  {
+    "component_id": "text_block-03-agenda",
+    "component_type": "text",
+    "component_subtype": "text_block_3",
+    "source_slide_id": "agenda_slide-01-technology",
+    "layout_type": "agenda",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "technology",
+    "color_token": "#102A43",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\text_block-03-agenda.png",
+    "metadata_json": {
+      "tags": [
+        "text",
+        "agenda",
+        "technology"
+      ],
+      "recommended_usage": "text_block",
+      "source_layout_type": "agenda",
+      "source_slide_id": "agenda_slide-01-technology"
+    },
+    "status": "seed",
+    "tags": [
+      "text",
+      "agenda",
+      "technology"
+    ],
+    "tags_json": [
+      "text",
+      "agenda",
+      "technology"
+    ]
+  },
+  {
+    "component_id": "number_card-01-agenda",
+    "component_type": "number_card",
+    "component_subtype": "number_card_1",
+    "source_slide_id": "agenda_slide-02-academic",
+    "layout_type": "agenda",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "academic",
+    "color_token": "#4A427C",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\number_card-01-agenda.png",
+    "metadata_json": {
+      "tags": [
+        "number_card",
+        "agenda",
+        "academic",
+        "education"
+      ],
+      "recommended_usage": "number_card",
+      "source_layout_type": "agenda",
+      "source_slide_id": "agenda_slide-02-academic"
+    },
+    "status": "seed",
+    "tags": [
+      "number_card",
+      "agenda",
+      "academic",
+      "education"
+    ],
+    "tags_json": [
+      "number_card",
+      "agenda",
+      "academic",
+      "education"
+    ]
+  },
+  {
+    "component_id": "number_card-02-agenda",
+    "component_type": "number_card",
+    "component_subtype": "number_card_2",
+    "source_slide_id": "agenda_slide-03-creative",
+    "layout_type": "agenda",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "creative",
+    "color_token": "#164E63",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\number_card-02-agenda.png",
+    "metadata_json": {
+      "tags": [
+        "number_card",
+        "agenda",
+        "creative",
+        "marketing"
+      ],
+      "recommended_usage": "number_card",
+      "source_layout_type": "agenda",
+      "source_slide_id": "agenda_slide-03-creative"
+    },
+    "status": "seed",
+    "tags": [
+      "number_card",
+      "agenda",
+      "creative",
+      "marketing"
+    ],
+    "tags_json": [
+      "number_card",
+      "agenda",
+      "creative",
+      "marketing"
+    ]
+  },
+  {
+    "component_id": "number_card-03-agenda",
+    "component_type": "number_card",
+    "component_subtype": "number_card_3",
+    "source_slide_id": "agenda_slide-04-government",
+    "layout_type": "agenda",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "government",
+    "color_token": "#7F1D1D",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\number_card-03-agenda.png",
+    "metadata_json": {
+      "tags": [
+        "number_card",
+        "agenda",
+        "government"
+      ],
+      "recommended_usage": "number_card",
+      "source_layout_type": "agenda",
+      "source_slide_id": "agenda_slide-04-government"
+    },
+    "status": "seed",
+    "tags": [
+      "number_card",
+      "agenda",
+      "government"
+    ],
+    "tags_json": [
+      "number_card",
+      "agenda",
+      "government"
+    ]
+  },
+  {
+    "component_id": "kpi_card-01-agenda",
+    "component_type": "kpi_card",
+    "component_subtype": "kpi_card_1",
+    "source_slide_id": "agenda_slide-05-finance",
+    "layout_type": "agenda",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "finance",
+    "color_token": "#0F5132",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\kpi_card-01-agenda.png",
+    "metadata_json": {
+      "tags": [
+        "kpi_card",
+        "agenda",
+        "finance"
+      ],
+      "recommended_usage": "kpi_card",
+      "source_layout_type": "agenda",
+      "source_slide_id": "agenda_slide-05-finance"
+    },
+    "status": "seed",
+    "tags": [
+      "kpi_card",
+      "agenda",
+      "finance"
+    ],
+    "tags_json": [
+      "kpi_card",
+      "agenda",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "kpi_card-02-agenda",
+    "component_type": "kpi_card",
+    "component_subtype": "kpi_card_2",
+    "source_slide_id": "agenda_slide-06-minimal",
+    "layout_type": "agenda",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "minimal",
+    "color_token": "#334155",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\kpi_card-02-agenda.png",
+    "metadata_json": {
+      "tags": [
+        "kpi_card",
+        "agenda",
+        "minimal",
+        "consulting"
+      ],
+      "recommended_usage": "kpi_card",
+      "source_layout_type": "agenda",
+      "source_slide_id": "agenda_slide-06-minimal"
+    },
+    "status": "seed",
+    "tags": [
+      "kpi_card",
+      "agenda",
+      "minimal",
+      "consulting"
+    ],
+    "tags_json": [
+      "kpi_card",
+      "agenda",
+      "minimal",
+      "consulting"
+    ]
+  },
+  {
+    "component_id": "kpi_card-03-agenda",
+    "component_type": "kpi_card",
+    "component_subtype": "kpi_card_3",
+    "source_slide_id": "agenda_slide-07-dark",
+    "layout_type": "agenda",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "dark",
+    "color_token": "#E5E7EB",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\kpi_card-03-agenda.png",
+    "metadata_json": {
+      "tags": [
+        "kpi_card",
+        "agenda",
+        "dark",
+        "ai"
+      ],
+      "recommended_usage": "kpi_card",
+      "source_layout_type": "agenda",
+      "source_slide_id": "agenda_slide-07-dark"
+    },
+    "status": "seed",
+    "tags": [
+      "kpi_card",
+      "agenda",
+      "dark",
+      "ai"
+    ],
+    "tags_json": [
+      "kpi_card",
+      "agenda",
+      "dark",
+      "ai"
+    ]
+  },
+  {
+    "component_id": "chart_block-01-agenda",
+    "component_type": "chart",
+    "component_subtype": "chart_block_1",
+    "source_slide_id": "agenda_slide-08-business",
+    "layout_type": "agenda",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "business",
+    "color_token": "#1B3756",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\chart_block-01-agenda.png",
+    "metadata_json": {
+      "tags": [
+        "chart",
+        "agenda",
+        "business",
+        "finance"
+      ],
+      "recommended_usage": "chart_block",
+      "source_layout_type": "agenda",
+      "source_slide_id": "agenda_slide-08-business"
+    },
+    "status": "seed",
+    "tags": [
+      "chart",
+      "agenda",
+      "business",
+      "finance"
+    ],
+    "tags_json": [
+      "chart",
+      "agenda",
+      "business",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "chart_block-02-section",
+    "component_type": "chart",
+    "component_subtype": "chart_block_2",
+    "source_slide_id": "section_slide-01-academic",
+    "layout_type": "section",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "academic",
+    "color_token": "#4A427C",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\chart_block-02-section.png",
+    "metadata_json": {
+      "tags": [
+        "chart",
+        "section",
+        "academic",
+        "education"
+      ],
+      "recommended_usage": "chart_block",
+      "source_layout_type": "section",
+      "source_slide_id": "section_slide-01-academic"
+    },
+    "status": "seed",
+    "tags": [
+      "chart",
+      "section",
+      "academic",
+      "education"
+    ],
+    "tags_json": [
+      "chart",
+      "section",
+      "academic",
+      "education"
+    ]
+  },
+  {
+    "component_id": "chart_block-03-section",
+    "component_type": "chart",
+    "component_subtype": "chart_block_3",
+    "source_slide_id": "section_slide-02-creative",
+    "layout_type": "section",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "creative",
+    "color_token": "#164E63",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\chart_block-03-section.png",
+    "metadata_json": {
+      "tags": [
+        "chart",
+        "section",
+        "creative",
+        "marketing"
+      ],
+      "recommended_usage": "chart_block",
+      "source_layout_type": "section",
+      "source_slide_id": "section_slide-02-creative"
+    },
+    "status": "seed",
+    "tags": [
+      "chart",
+      "section",
+      "creative",
+      "marketing"
+    ],
+    "tags_json": [
+      "chart",
+      "section",
+      "creative",
+      "marketing"
+    ]
+  },
+  {
+    "component_id": "table_block-01-section",
+    "component_type": "table",
+    "component_subtype": "table_block_1",
+    "source_slide_id": "section_slide-03-government",
+    "layout_type": "section",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "government",
+    "color_token": "#7F1D1D",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\table_block-01-section.png",
+    "metadata_json": {
+      "tags": [
+        "table",
+        "section",
+        "government"
+      ],
+      "recommended_usage": "table_block",
+      "source_layout_type": "section",
+      "source_slide_id": "section_slide-03-government"
+    },
+    "status": "seed",
+    "tags": [
+      "table",
+      "section",
+      "government"
+    ],
+    "tags_json": [
+      "table",
+      "section",
+      "government"
+    ]
+  },
+  {
+    "component_id": "table_block-02-section",
+    "component_type": "table",
+    "component_subtype": "table_block_2",
+    "source_slide_id": "section_slide-04-finance",
+    "layout_type": "section",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "finance",
+    "color_token": "#0F5132",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\table_block-02-section.png",
+    "metadata_json": {
+      "tags": [
+        "table",
+        "section",
+        "finance"
+      ],
+      "recommended_usage": "table_block",
+      "source_layout_type": "section",
+      "source_slide_id": "section_slide-04-finance"
+    },
+    "status": "seed",
+    "tags": [
+      "table",
+      "section",
+      "finance"
+    ],
+    "tags_json": [
+      "table",
+      "section",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "table_block-03-section",
+    "component_type": "table",
+    "component_subtype": "table_block_3",
+    "source_slide_id": "section_slide-05-minimal",
+    "layout_type": "section",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "minimal",
+    "color_token": "#334155",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\table_block-03-section.png",
+    "metadata_json": {
+      "tags": [
+        "table",
+        "section",
+        "minimal",
+        "consulting"
+      ],
+      "recommended_usage": "table_block",
+      "source_layout_type": "section",
+      "source_slide_id": "section_slide-05-minimal"
+    },
+    "status": "seed",
+    "tags": [
+      "table",
+      "section",
+      "minimal",
+      "consulting"
+    ],
+    "tags_json": [
+      "table",
+      "section",
+      "minimal",
+      "consulting"
+    ]
+  },
+  {
+    "component_id": "timeline_block-01-section",
+    "component_type": "timeline",
+    "component_subtype": "timeline_block_1",
+    "source_slide_id": "section_slide-06-dark",
+    "layout_type": "section",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "dark",
+    "color_token": "#E5E7EB",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\timeline_block-01-section.png",
+    "metadata_json": {
+      "tags": [
+        "timeline",
+        "section",
+        "dark",
+        "ai"
+      ],
+      "recommended_usage": "timeline_block",
+      "source_layout_type": "section",
+      "source_slide_id": "section_slide-06-dark"
+    },
+    "status": "seed",
+    "tags": [
+      "timeline",
+      "section",
+      "dark",
+      "ai"
+    ],
+    "tags_json": [
+      "timeline",
+      "section",
+      "dark",
+      "ai"
+    ]
+  },
+  {
+    "component_id": "timeline_block-02-section",
+    "component_type": "timeline",
+    "component_subtype": "timeline_block_2",
+    "source_slide_id": "section_slide-07-business",
+    "layout_type": "section",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "business",
+    "color_token": "#1B3756",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\timeline_block-02-section.png",
+    "metadata_json": {
+      "tags": [
+        "timeline",
+        "section",
+        "business",
+        "finance"
+      ],
+      "recommended_usage": "timeline_block",
+      "source_layout_type": "section",
+      "source_slide_id": "section_slide-07-business"
+    },
+    "status": "seed",
+    "tags": [
+      "timeline",
+      "section",
+      "business",
+      "finance"
+    ],
+    "tags_json": [
+      "timeline",
+      "section",
+      "business",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "timeline_block-03-section",
+    "component_type": "timeline",
+    "component_subtype": "timeline_block_3",
+    "source_slide_id": "section_slide-08-technology",
+    "layout_type": "section",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "technology",
+    "color_token": "#102A43",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\timeline_block-03-section.png",
+    "metadata_json": {
+      "tags": [
+        "timeline",
+        "section",
+        "technology"
+      ],
+      "recommended_usage": "timeline_block",
+      "source_layout_type": "section",
+      "source_slide_id": "section_slide-08-technology"
+    },
+    "status": "seed",
+    "tags": [
+      "timeline",
+      "section",
+      "technology"
+    ],
+    "tags_json": [
+      "timeline",
+      "section",
+      "technology"
+    ]
+  },
+  {
+    "component_id": "process_block-01-content",
+    "component_type": "process",
+    "component_subtype": "process_block_1",
+    "source_slide_id": "content_slide-01-creative",
+    "layout_type": "content",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "creative",
+    "color_token": "#164E63",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\process_block-01-content.png",
+    "metadata_json": {
+      "tags": [
+        "process",
+        "content",
+        "creative",
+        "marketing"
+      ],
+      "recommended_usage": "process_block",
+      "source_layout_type": "content",
+      "source_slide_id": "content_slide-01-creative"
+    },
+    "status": "seed",
+    "tags": [
+      "process",
+      "content",
+      "creative",
+      "marketing"
+    ],
+    "tags_json": [
+      "process",
+      "content",
+      "creative",
+      "marketing"
+    ]
+  },
+  {
+    "component_id": "process_block-02-content",
+    "component_type": "process",
+    "component_subtype": "process_block_2",
+    "source_slide_id": "content_slide-02-government",
+    "layout_type": "content",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "government",
+    "color_token": "#7F1D1D",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\process_block-02-content.png",
+    "metadata_json": {
+      "tags": [
+        "process",
+        "content",
+        "government"
+      ],
+      "recommended_usage": "process_block",
+      "source_layout_type": "content",
+      "source_slide_id": "content_slide-02-government"
+    },
+    "status": "seed",
+    "tags": [
+      "process",
+      "content",
+      "government"
+    ],
+    "tags_json": [
+      "process",
+      "content",
+      "government"
+    ]
+  },
+  {
+    "component_id": "process_block-03-content",
+    "component_type": "process",
+    "component_subtype": "process_block_3",
+    "source_slide_id": "content_slide-03-finance",
+    "layout_type": "content",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "finance",
+    "color_token": "#0F5132",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\process_block-03-content.png",
+    "metadata_json": {
+      "tags": [
+        "process",
+        "content",
+        "finance"
+      ],
+      "recommended_usage": "process_block",
+      "source_layout_type": "content",
+      "source_slide_id": "content_slide-03-finance"
+    },
+    "status": "seed",
+    "tags": [
+      "process",
+      "content",
+      "finance"
+    ],
+    "tags_json": [
+      "process",
+      "content",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "comparison_block-01-content",
+    "component_type": "comparison",
+    "component_subtype": "comparison_block_1",
+    "source_slide_id": "content_slide-04-minimal",
+    "layout_type": "content",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "minimal",
+    "color_token": "#334155",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\comparison_block-01-content.png",
+    "metadata_json": {
+      "tags": [
+        "comparison",
+        "content",
+        "minimal",
+        "consulting"
+      ],
+      "recommended_usage": "comparison_block",
+      "source_layout_type": "content",
+      "source_slide_id": "content_slide-04-minimal"
+    },
+    "status": "seed",
+    "tags": [
+      "comparison",
+      "content",
+      "minimal",
+      "consulting"
+    ],
+    "tags_json": [
+      "comparison",
+      "content",
+      "minimal",
+      "consulting"
+    ]
+  },
+  {
+    "component_id": "comparison_block-02-content",
+    "component_type": "comparison",
+    "component_subtype": "comparison_block_2",
+    "source_slide_id": "content_slide-05-dark",
+    "layout_type": "content",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "dark",
+    "color_token": "#E5E7EB",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\comparison_block-02-content.png",
+    "metadata_json": {
+      "tags": [
+        "comparison",
+        "content",
+        "dark",
+        "ai"
+      ],
+      "recommended_usage": "comparison_block",
+      "source_layout_type": "content",
+      "source_slide_id": "content_slide-05-dark"
+    },
+    "status": "seed",
+    "tags": [
+      "comparison",
+      "content",
+      "dark",
+      "ai"
+    ],
+    "tags_json": [
+      "comparison",
+      "content",
+      "dark",
+      "ai"
+    ]
+  },
+  {
+    "component_id": "comparison_block-03-content",
+    "component_type": "comparison",
+    "component_subtype": "comparison_block_3",
+    "source_slide_id": "content_slide-06-business",
+    "layout_type": "content",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "business",
+    "color_token": "#1B3756",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\comparison_block-03-content.png",
+    "metadata_json": {
+      "tags": [
+        "comparison",
+        "content",
+        "business",
+        "finance"
+      ],
+      "recommended_usage": "comparison_block",
+      "source_layout_type": "content",
+      "source_slide_id": "content_slide-06-business"
+    },
+    "status": "seed",
+    "tags": [
+      "comparison",
+      "content",
+      "business",
+      "finance"
+    ],
+    "tags_json": [
+      "comparison",
+      "content",
+      "business",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "matrix_block-01-content",
+    "component_type": "matrix",
+    "component_subtype": "matrix_block_1",
+    "source_slide_id": "content_slide-07-technology",
+    "layout_type": "content",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "technology",
+    "color_token": "#102A43",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\matrix_block-01-content.png",
+    "metadata_json": {
+      "tags": [
+        "matrix",
+        "content",
+        "technology"
+      ],
+      "recommended_usage": "matrix_block",
+      "source_layout_type": "content",
+      "source_slide_id": "content_slide-07-technology"
+    },
+    "status": "seed",
+    "tags": [
+      "matrix",
+      "content",
+      "technology"
+    ],
+    "tags_json": [
+      "matrix",
+      "content",
+      "technology"
+    ]
+  },
+  {
+    "component_id": "matrix_block-02-content",
+    "component_type": "matrix",
+    "component_subtype": "matrix_block_2",
+    "source_slide_id": "content_slide-08-academic",
+    "layout_type": "content",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "academic",
+    "color_token": "#4A427C",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\matrix_block-02-content.png",
+    "metadata_json": {
+      "tags": [
+        "matrix",
+        "content",
+        "academic",
+        "education"
+      ],
+      "recommended_usage": "matrix_block",
+      "source_layout_type": "content",
+      "source_slide_id": "content_slide-08-academic"
+    },
+    "status": "seed",
+    "tags": [
+      "matrix",
+      "content",
+      "academic",
+      "education"
+    ],
+    "tags_json": [
+      "matrix",
+      "content",
+      "academic",
+      "education"
+    ]
+  },
+  {
+    "component_id": "matrix_block-03-data-analysis",
+    "component_type": "matrix",
+    "component_subtype": "matrix_block_3",
+    "source_slide_id": "data_analysis_slide-01-government",
+    "layout_type": "data_analysis",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "government",
+    "color_token": "#7F1D1D",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\matrix_block-03-data-analysis.png",
+    "metadata_json": {
+      "tags": [
+        "matrix",
+        "data_analysis",
+        "government"
+      ],
+      "recommended_usage": "matrix_block",
+      "source_layout_type": "data_analysis",
+      "source_slide_id": "data_analysis_slide-01-government"
+    },
+    "status": "seed",
+    "tags": [
+      "matrix",
+      "data_analysis",
+      "government"
+    ],
+    "tags_json": [
+      "matrix",
+      "data_analysis",
+      "government"
+    ]
+  },
+  {
+    "component_id": "org_chart_block-01-data-analysis",
+    "component_type": "org_chart",
+    "component_subtype": "org_chart_block_1",
+    "source_slide_id": "data_analysis_slide-02-finance",
+    "layout_type": "data_analysis",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "finance",
+    "color_token": "#0F5132",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\org_chart_block-01-data-analysis.png",
+    "metadata_json": {
+      "tags": [
+        "org_chart",
+        "data_analysis",
+        "finance"
+      ],
+      "recommended_usage": "org_chart_block",
+      "source_layout_type": "data_analysis",
+      "source_slide_id": "data_analysis_slide-02-finance"
+    },
+    "status": "seed",
+    "tags": [
+      "org_chart",
+      "data_analysis",
+      "finance"
+    ],
+    "tags_json": [
+      "org_chart",
+      "data_analysis",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "org_chart_block-02-data-analysis",
+    "component_type": "org_chart",
+    "component_subtype": "org_chart_block_2",
+    "source_slide_id": "data_analysis_slide-03-minimal",
+    "layout_type": "data_analysis",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "minimal",
+    "color_token": "#334155",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\org_chart_block-02-data-analysis.png",
+    "metadata_json": {
+      "tags": [
+        "org_chart",
+        "data_analysis",
+        "minimal",
+        "consulting"
+      ],
+      "recommended_usage": "org_chart_block",
+      "source_layout_type": "data_analysis",
+      "source_slide_id": "data_analysis_slide-03-minimal"
+    },
+    "status": "seed",
+    "tags": [
+      "org_chart",
+      "data_analysis",
+      "minimal",
+      "consulting"
+    ],
+    "tags_json": [
+      "org_chart",
+      "data_analysis",
+      "minimal",
+      "consulting"
+    ]
+  },
+  {
+    "component_id": "org_chart_block-03-data-analysis",
+    "component_type": "org_chart",
+    "component_subtype": "org_chart_block_3",
+    "source_slide_id": "data_analysis_slide-04-dark",
+    "layout_type": "data_analysis",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "dark",
+    "color_token": "#E5E7EB",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\org_chart_block-03-data-analysis.png",
+    "metadata_json": {
+      "tags": [
+        "org_chart",
+        "data_analysis",
+        "dark",
+        "ai"
+      ],
+      "recommended_usage": "org_chart_block",
+      "source_layout_type": "data_analysis",
+      "source_slide_id": "data_analysis_slide-04-dark"
+    },
+    "status": "seed",
+    "tags": [
+      "org_chart",
+      "data_analysis",
+      "dark",
+      "ai"
+    ],
+    "tags_json": [
+      "org_chart",
+      "data_analysis",
+      "dark",
+      "ai"
+    ]
+  },
+  {
+    "component_id": "swot_block-01-data-analysis",
+    "component_type": "swot",
+    "component_subtype": "swot_block_1",
+    "source_slide_id": "data_analysis_slide-05-business",
+    "layout_type": "data_analysis",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "business",
+    "color_token": "#1B3756",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\swot_block-01-data-analysis.png",
+    "metadata_json": {
+      "tags": [
+        "swot",
+        "data_analysis",
+        "business",
+        "finance"
+      ],
+      "recommended_usage": "swot_block",
+      "source_layout_type": "data_analysis",
+      "source_slide_id": "data_analysis_slide-05-business"
+    },
+    "status": "seed",
+    "tags": [
+      "swot",
+      "data_analysis",
+      "business",
+      "finance"
+    ],
+    "tags_json": [
+      "swot",
+      "data_analysis",
+      "business",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "swot_block-02-data-analysis",
+    "component_type": "swot",
+    "component_subtype": "swot_block_2",
+    "source_slide_id": "data_analysis_slide-06-technology",
+    "layout_type": "data_analysis",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "technology",
+    "color_token": "#102A43",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\swot_block-02-data-analysis.png",
+    "metadata_json": {
+      "tags": [
+        "swot",
+        "data_analysis",
+        "technology"
+      ],
+      "recommended_usage": "swot_block",
+      "source_layout_type": "data_analysis",
+      "source_slide_id": "data_analysis_slide-06-technology"
+    },
+    "status": "seed",
+    "tags": [
+      "swot",
+      "data_analysis",
+      "technology"
+    ],
+    "tags_json": [
+      "swot",
+      "data_analysis",
+      "technology"
+    ]
+  },
+  {
+    "component_id": "swot_block-03-data-analysis",
+    "component_type": "swot",
+    "component_subtype": "swot_block_3",
+    "source_slide_id": "data_analysis_slide-07-academic",
+    "layout_type": "data_analysis",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "academic",
+    "color_token": "#4A427C",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\swot_block-03-data-analysis.png",
+    "metadata_json": {
+      "tags": [
+        "swot",
+        "data_analysis",
+        "academic",
+        "education"
+      ],
+      "recommended_usage": "swot_block",
+      "source_layout_type": "data_analysis",
+      "source_slide_id": "data_analysis_slide-07-academic"
+    },
+    "status": "seed",
+    "tags": [
+      "swot",
+      "data_analysis",
+      "academic",
+      "education"
+    ],
+    "tags_json": [
+      "swot",
+      "data_analysis",
+      "academic",
+      "education"
+    ]
+  },
+  {
+    "component_id": "funnel_block-01-data-analysis",
+    "component_type": "funnel",
+    "component_subtype": "funnel_block_1",
+    "source_slide_id": "data_analysis_slide-08-creative",
+    "layout_type": "data_analysis",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "creative",
+    "color_token": "#164E63",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\funnel_block-01-data-analysis.png",
+    "metadata_json": {
+      "tags": [
+        "funnel",
+        "data_analysis",
+        "creative",
+        "marketing"
+      ],
+      "recommended_usage": "funnel_block",
+      "source_layout_type": "data_analysis",
+      "source_slide_id": "data_analysis_slide-08-creative"
+    },
+    "status": "seed",
+    "tags": [
+      "funnel",
+      "data_analysis",
+      "creative",
+      "marketing"
+    ],
+    "tags_json": [
+      "funnel",
+      "data_analysis",
+      "creative",
+      "marketing"
+    ]
+  },
+  {
+    "component_id": "funnel_block-02-chart",
+    "component_type": "funnel",
+    "component_subtype": "funnel_block_2",
+    "source_slide_id": "chart_slide-01-finance",
+    "layout_type": "chart",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "finance",
+    "color_token": "#0F5132",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\funnel_block-02-chart.png",
+    "metadata_json": {
+      "tags": [
+        "funnel",
+        "chart",
+        "finance"
+      ],
+      "recommended_usage": "funnel_block",
+      "source_layout_type": "chart",
+      "source_slide_id": "chart_slide-01-finance"
+    },
+    "status": "seed",
+    "tags": [
+      "funnel",
+      "chart",
+      "finance"
+    ],
+    "tags_json": [
+      "funnel",
+      "chart",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "funnel_block-03-chart",
+    "component_type": "funnel",
+    "component_subtype": "funnel_block_3",
+    "source_slide_id": "chart_slide-02-minimal",
+    "layout_type": "chart",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "minimal",
+    "color_token": "#334155",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\funnel_block-03-chart.png",
+    "metadata_json": {
+      "tags": [
+        "funnel",
+        "chart",
+        "minimal",
+        "consulting"
+      ],
+      "recommended_usage": "funnel_block",
+      "source_layout_type": "chart",
+      "source_slide_id": "chart_slide-02-minimal"
+    },
+    "status": "seed",
+    "tags": [
+      "funnel",
+      "chart",
+      "minimal",
+      "consulting"
+    ],
+    "tags_json": [
+      "funnel",
+      "chart",
+      "minimal",
+      "consulting"
+    ]
+  },
+  {
+    "component_id": "pyramid_block-01-chart",
+    "component_type": "pyramid",
+    "component_subtype": "pyramid_block_1",
+    "source_slide_id": "chart_slide-03-dark",
+    "layout_type": "chart",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "dark",
+    "color_token": "#E5E7EB",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\pyramid_block-01-chart.png",
+    "metadata_json": {
+      "tags": [
+        "pyramid",
+        "chart",
+        "dark",
+        "ai"
+      ],
+      "recommended_usage": "pyramid_block",
+      "source_layout_type": "chart",
+      "source_slide_id": "chart_slide-03-dark"
+    },
+    "status": "seed",
+    "tags": [
+      "pyramid",
+      "chart",
+      "dark",
+      "ai"
+    ],
+    "tags_json": [
+      "pyramid",
+      "chart",
+      "dark",
+      "ai"
+    ]
+  },
+  {
+    "component_id": "pyramid_block-02-chart",
+    "component_type": "pyramid",
+    "component_subtype": "pyramid_block_2",
+    "source_slide_id": "chart_slide-04-business",
+    "layout_type": "chart",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "business",
+    "color_token": "#1B3756",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\pyramid_block-02-chart.png",
+    "metadata_json": {
+      "tags": [
+        "pyramid",
+        "chart",
+        "business",
+        "finance"
+      ],
+      "recommended_usage": "pyramid_block",
+      "source_layout_type": "chart",
+      "source_slide_id": "chart_slide-04-business"
+    },
+    "status": "seed",
+    "tags": [
+      "pyramid",
+      "chart",
+      "business",
+      "finance"
+    ],
+    "tags_json": [
+      "pyramid",
+      "chart",
+      "business",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "pyramid_block-03-chart",
+    "component_type": "pyramid",
+    "component_subtype": "pyramid_block_3",
+    "source_slide_id": "chart_slide-05-technology",
+    "layout_type": "chart",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "technology",
+    "color_token": "#102A43",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\pyramid_block-03-chart.png",
+    "metadata_json": {
+      "tags": [
+        "pyramid",
+        "chart",
+        "technology"
+      ],
+      "recommended_usage": "pyramid_block",
+      "source_layout_type": "chart",
+      "source_slide_id": "chart_slide-05-technology"
+    },
+    "status": "seed",
+    "tags": [
+      "pyramid",
+      "chart",
+      "technology"
+    ],
+    "tags_json": [
+      "pyramid",
+      "chart",
+      "technology"
+    ]
+  },
+  {
+    "component_id": "people_card-01-chart",
+    "component_type": "people_card",
+    "component_subtype": "people_card_1",
+    "source_slide_id": "chart_slide-06-academic",
+    "layout_type": "chart",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "academic",
+    "color_token": "#4A427C",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\people_card-01-chart.png",
+    "metadata_json": {
+      "tags": [
+        "people_card",
+        "chart",
+        "academic",
+        "education"
+      ],
+      "recommended_usage": "people_card",
+      "source_layout_type": "chart",
+      "source_slide_id": "chart_slide-06-academic"
+    },
+    "status": "seed",
+    "tags": [
+      "people_card",
+      "chart",
+      "academic",
+      "education"
+    ],
+    "tags_json": [
+      "people_card",
+      "chart",
+      "academic",
+      "education"
+    ]
+  },
+  {
+    "component_id": "people_card-02-chart",
+    "component_type": "people_card",
+    "component_subtype": "people_card_2",
+    "source_slide_id": "chart_slide-07-creative",
+    "layout_type": "chart",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "creative",
+    "color_token": "#164E63",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\people_card-02-chart.png",
+    "metadata_json": {
+      "tags": [
+        "people_card",
+        "chart",
+        "creative",
+        "marketing"
+      ],
+      "recommended_usage": "people_card",
+      "source_layout_type": "chart",
+      "source_slide_id": "chart_slide-07-creative"
+    },
+    "status": "seed",
+    "tags": [
+      "people_card",
+      "chart",
+      "creative",
+      "marketing"
+    ],
+    "tags_json": [
+      "people_card",
+      "chart",
+      "creative",
+      "marketing"
+    ]
+  },
+  {
+    "component_id": "people_card-03-chart",
+    "component_type": "people_card",
+    "component_subtype": "people_card_3",
+    "source_slide_id": "chart_slide-08-government",
+    "layout_type": "chart",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "government",
+    "color_token": "#7F1D1D",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\people_card-03-chart.png",
+    "metadata_json": {
+      "tags": [
+        "people_card",
+        "chart",
+        "government"
+      ],
+      "recommended_usage": "people_card",
+      "source_layout_type": "chart",
+      "source_slide_id": "chart_slide-08-government"
+    },
+    "status": "seed",
+    "tags": [
+      "people_card",
+      "chart",
+      "government"
+    ],
+    "tags_json": [
+      "people_card",
+      "chart",
+      "government"
+    ]
+  },
+  {
+    "component_id": "product_card-01-table",
+    "component_type": "product_card",
+    "component_subtype": "product_card_1",
+    "source_slide_id": "table_slide-01-minimal",
+    "layout_type": "table",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "minimal",
+    "color_token": "#334155",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\product_card-01-table.png",
+    "metadata_json": {
+      "tags": [
+        "product_card",
+        "table",
+        "minimal",
+        "consulting"
+      ],
+      "recommended_usage": "product_card",
+      "source_layout_type": "table",
+      "source_slide_id": "table_slide-01-minimal"
+    },
+    "status": "seed",
+    "tags": [
+      "product_card",
+      "table",
+      "minimal",
+      "consulting"
+    ],
+    "tags_json": [
+      "product_card",
+      "table",
+      "minimal",
+      "consulting"
+    ]
+  },
+  {
+    "component_id": "product_card-02-table",
+    "component_type": "product_card",
+    "component_subtype": "product_card_2",
+    "source_slide_id": "table_slide-02-dark",
+    "layout_type": "table",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "dark",
+    "color_token": "#E5E7EB",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\product_card-02-table.png",
+    "metadata_json": {
+      "tags": [
+        "product_card",
+        "table",
+        "dark",
+        "ai"
+      ],
+      "recommended_usage": "product_card",
+      "source_layout_type": "table",
+      "source_slide_id": "table_slide-02-dark"
+    },
+    "status": "seed",
+    "tags": [
+      "product_card",
+      "table",
+      "dark",
+      "ai"
+    ],
+    "tags_json": [
+      "product_card",
+      "table",
+      "dark",
+      "ai"
+    ]
+  },
+  {
+    "component_id": "product_card-03-table",
+    "component_type": "product_card",
+    "component_subtype": "product_card_3",
+    "source_slide_id": "table_slide-03-business",
+    "layout_type": "table",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "business",
+    "color_token": "#1B3756",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\product_card-03-table.png",
+    "metadata_json": {
+      "tags": [
+        "product_card",
+        "table",
+        "business",
+        "finance"
+      ],
+      "recommended_usage": "product_card",
+      "source_layout_type": "table",
+      "source_slide_id": "table_slide-03-business"
+    },
+    "status": "seed",
+    "tags": [
+      "product_card",
+      "table",
+      "business",
+      "finance"
+    ],
+    "tags_json": [
+      "product_card",
+      "table",
+      "business",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "gallery_block-01-table",
+    "component_type": "gallery",
+    "component_subtype": "gallery_block_1",
+    "source_slide_id": "table_slide-04-technology",
+    "layout_type": "table",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "technology",
+    "color_token": "#102A43",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\gallery_block-01-table.png",
+    "metadata_json": {
+      "tags": [
+        "gallery",
+        "table",
+        "technology"
+      ],
+      "recommended_usage": "gallery_block",
+      "source_layout_type": "table",
+      "source_slide_id": "table_slide-04-technology"
+    },
+    "status": "seed",
+    "tags": [
+      "gallery",
+      "table",
+      "technology"
+    ],
+    "tags_json": [
+      "gallery",
+      "table",
+      "technology"
+    ]
+  },
+  {
+    "component_id": "gallery_block-02-table",
+    "component_type": "gallery",
+    "component_subtype": "gallery_block_2",
+    "source_slide_id": "table_slide-05-academic",
+    "layout_type": "table",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "academic",
+    "color_token": "#4A427C",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\gallery_block-02-table.png",
+    "metadata_json": {
+      "tags": [
+        "gallery",
+        "table",
+        "academic",
+        "education"
+      ],
+      "recommended_usage": "gallery_block",
+      "source_layout_type": "table",
+      "source_slide_id": "table_slide-05-academic"
+    },
+    "status": "seed",
+    "tags": [
+      "gallery",
+      "table",
+      "academic",
+      "education"
+    ],
+    "tags_json": [
+      "gallery",
+      "table",
+      "academic",
+      "education"
+    ]
+  },
+  {
+    "component_id": "gallery_block-03-table",
+    "component_type": "gallery",
+    "component_subtype": "gallery_block_3",
+    "source_slide_id": "table_slide-06-creative",
+    "layout_type": "table",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "creative",
+    "color_token": "#164E63",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\gallery_block-03-table.png",
+    "metadata_json": {
+      "tags": [
+        "gallery",
+        "table",
+        "creative",
+        "marketing"
+      ],
+      "recommended_usage": "gallery_block",
+      "source_layout_type": "table",
+      "source_slide_id": "table_slide-06-creative"
+    },
+    "status": "seed",
+    "tags": [
+      "gallery",
+      "table",
+      "creative",
+      "marketing"
+    ],
+    "tags_json": [
+      "gallery",
+      "table",
+      "creative",
+      "marketing"
+    ]
+  },
+  {
+    "component_id": "map_block-01-table",
+    "component_type": "map",
+    "component_subtype": "map_block_1",
+    "source_slide_id": "table_slide-07-government",
+    "layout_type": "table",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "government",
+    "color_token": "#7F1D1D",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\map_block-01-table.png",
+    "metadata_json": {
+      "tags": [
+        "map",
+        "table",
+        "government"
+      ],
+      "recommended_usage": "map_block",
+      "source_layout_type": "table",
+      "source_slide_id": "table_slide-07-government"
+    },
+    "status": "seed",
+    "tags": [
+      "map",
+      "table",
+      "government"
+    ],
+    "tags_json": [
+      "map",
+      "table",
+      "government"
+    ]
+  },
+  {
+    "component_id": "map_block-02-table",
+    "component_type": "map",
+    "component_subtype": "map_block_2",
+    "source_slide_id": "table_slide-08-finance",
+    "layout_type": "table",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "finance",
+    "color_token": "#0F5132",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\map_block-02-table.png",
+    "metadata_json": {
+      "tags": [
+        "map",
+        "table",
+        "finance"
+      ],
+      "recommended_usage": "map_block",
+      "source_layout_type": "table",
+      "source_slide_id": "table_slide-08-finance"
+    },
+    "status": "seed",
+    "tags": [
+      "map",
+      "table",
+      "finance"
+    ],
+    "tags_json": [
+      "map",
+      "table",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "map_block-03-timeline",
+    "component_type": "map",
+    "component_subtype": "map_block_3",
+    "source_slide_id": "timeline_slide-01-dark",
+    "layout_type": "timeline",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "dark",
+    "color_token": "#E5E7EB",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\map_block-03-timeline.png",
+    "metadata_json": {
+      "tags": [
+        "map",
+        "timeline",
+        "dark",
+        "ai"
+      ],
+      "recommended_usage": "map_block",
+      "source_layout_type": "timeline",
+      "source_slide_id": "timeline_slide-01-dark"
+    },
+    "status": "seed",
+    "tags": [
+      "map",
+      "timeline",
+      "dark",
+      "ai"
+    ],
+    "tags_json": [
+      "map",
+      "timeline",
+      "dark",
+      "ai"
+    ]
+  },
+  {
+    "component_id": "dashboard_block-01-timeline",
+    "component_type": "dashboard",
+    "component_subtype": "dashboard_block_1",
+    "source_slide_id": "timeline_slide-02-business",
+    "layout_type": "timeline",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "business",
+    "color_token": "#1B3756",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\dashboard_block-01-timeline.png",
+    "metadata_json": {
+      "tags": [
+        "dashboard",
+        "timeline",
+        "business",
+        "finance"
+      ],
+      "recommended_usage": "dashboard_block",
+      "source_layout_type": "timeline",
+      "source_slide_id": "timeline_slide-02-business"
+    },
+    "status": "seed",
+    "tags": [
+      "dashboard",
+      "timeline",
+      "business",
+      "finance"
+    ],
+    "tags_json": [
+      "dashboard",
+      "timeline",
+      "business",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "dashboard_block-02-timeline",
+    "component_type": "dashboard",
+    "component_subtype": "dashboard_block_2",
+    "source_slide_id": "timeline_slide-03-technology",
+    "layout_type": "timeline",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "technology",
+    "color_token": "#102A43",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\dashboard_block-02-timeline.png",
+    "metadata_json": {
+      "tags": [
+        "dashboard",
+        "timeline",
+        "technology"
+      ],
+      "recommended_usage": "dashboard_block",
+      "source_layout_type": "timeline",
+      "source_slide_id": "timeline_slide-03-technology"
+    },
+    "status": "seed",
+    "tags": [
+      "dashboard",
+      "timeline",
+      "technology"
+    ],
+    "tags_json": [
+      "dashboard",
+      "timeline",
+      "technology"
+    ]
+  },
+  {
+    "component_id": "dashboard_block-03-timeline",
+    "component_type": "dashboard",
+    "component_subtype": "dashboard_block_3",
+    "source_slide_id": "timeline_slide-04-academic",
+    "layout_type": "timeline",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "academic",
+    "color_token": "#4A427C",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\dashboard_block-03-timeline.png",
+    "metadata_json": {
+      "tags": [
+        "dashboard",
+        "timeline",
+        "academic",
+        "education"
+      ],
+      "recommended_usage": "dashboard_block",
+      "source_layout_type": "timeline",
+      "source_slide_id": "timeline_slide-04-academic"
+    },
+    "status": "seed",
+    "tags": [
+      "dashboard",
+      "timeline",
+      "academic",
+      "education"
+    ],
+    "tags_json": [
+      "dashboard",
+      "timeline",
+      "academic",
+      "education"
+    ]
+  },
+  {
+    "component_id": "header_block-01-timeline",
+    "component_type": "header",
+    "component_subtype": "header_block_1",
+    "source_slide_id": "timeline_slide-05-creative",
+    "layout_type": "timeline",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "creative",
+    "color_token": "#164E63",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\header_block-01-timeline.png",
+    "metadata_json": {
+      "tags": [
+        "header",
+        "timeline",
+        "creative",
+        "marketing"
+      ],
+      "recommended_usage": "header_block",
+      "source_layout_type": "timeline",
+      "source_slide_id": "timeline_slide-05-creative"
+    },
+    "status": "seed",
+    "tags": [
+      "header",
+      "timeline",
+      "creative",
+      "marketing"
+    ],
+    "tags_json": [
+      "header",
+      "timeline",
+      "creative",
+      "marketing"
+    ]
+  },
+  {
+    "component_id": "header_block-02-timeline",
+    "component_type": "header",
+    "component_subtype": "header_block_2",
+    "source_slide_id": "timeline_slide-06-government",
+    "layout_type": "timeline",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "government",
+    "color_token": "#7F1D1D",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\header_block-02-timeline.png",
+    "metadata_json": {
+      "tags": [
+        "header",
+        "timeline",
+        "government"
+      ],
+      "recommended_usage": "header_block",
+      "source_layout_type": "timeline",
+      "source_slide_id": "timeline_slide-06-government"
+    },
+    "status": "seed",
+    "tags": [
+      "header",
+      "timeline",
+      "government"
+    ],
+    "tags_json": [
+      "header",
+      "timeline",
+      "government"
+    ]
+  },
+  {
+    "component_id": "header_block-03-timeline",
+    "component_type": "header",
+    "component_subtype": "header_block_3",
+    "source_slide_id": "timeline_slide-07-finance",
+    "layout_type": "timeline",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "finance",
+    "color_token": "#0F5132",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\header_block-03-timeline.png",
+    "metadata_json": {
+      "tags": [
+        "header",
+        "timeline",
+        "finance"
+      ],
+      "recommended_usage": "header_block",
+      "source_layout_type": "timeline",
+      "source_slide_id": "timeline_slide-07-finance"
+    },
+    "status": "seed",
+    "tags": [
+      "header",
+      "timeline",
+      "finance"
+    ],
+    "tags_json": [
+      "header",
+      "timeline",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "footer_block-01-timeline",
+    "component_type": "footer",
+    "component_subtype": "footer_block_1",
+    "source_slide_id": "timeline_slide-08-minimal",
+    "layout_type": "timeline",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "minimal",
+    "color_token": "#334155",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\footer_block-01-timeline.png",
+    "metadata_json": {
+      "tags": [
+        "footer",
+        "timeline",
+        "minimal",
+        "consulting"
+      ],
+      "recommended_usage": "footer_block",
+      "source_layout_type": "timeline",
+      "source_slide_id": "timeline_slide-08-minimal"
+    },
+    "status": "seed",
+    "tags": [
+      "footer",
+      "timeline",
+      "minimal",
+      "consulting"
+    ],
+    "tags_json": [
+      "footer",
+      "timeline",
+      "minimal",
+      "consulting"
+    ]
+  },
+  {
+    "component_id": "footer_block-02-process",
+    "component_type": "footer",
+    "component_subtype": "footer_block_2",
+    "source_slide_id": "process_slide-01-business",
+    "layout_type": "process",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "business",
+    "color_token": "#1B3756",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\footer_block-02-process.png",
+    "metadata_json": {
+      "tags": [
+        "footer",
+        "process",
+        "business",
+        "finance"
+      ],
+      "recommended_usage": "footer_block",
+      "source_layout_type": "process",
+      "source_slide_id": "process_slide-01-business"
+    },
+    "status": "seed",
+    "tags": [
+      "footer",
+      "process",
+      "business",
+      "finance"
+    ],
+    "tags_json": [
+      "footer",
+      "process",
+      "business",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "footer_block-03-process",
+    "component_type": "footer",
+    "component_subtype": "footer_block_3",
+    "source_slide_id": "process_slide-02-technology",
+    "layout_type": "process",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "technology",
+    "color_token": "#102A43",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\footer_block-03-process.png",
+    "metadata_json": {
+      "tags": [
+        "footer",
+        "process",
+        "technology"
+      ],
+      "recommended_usage": "footer_block",
+      "source_layout_type": "process",
+      "source_slide_id": "process_slide-02-technology"
+    },
+    "status": "seed",
+    "tags": [
+      "footer",
+      "process",
+      "technology"
+    ],
+    "tags_json": [
+      "footer",
+      "process",
+      "technology"
+    ]
+  },
+  {
+    "component_id": "page_number_block-01-process",
+    "component_type": "page_number",
+    "component_subtype": "page_number_block_1",
+    "source_slide_id": "process_slide-03-academic",
+    "layout_type": "process",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "academic",
+    "color_token": "#4A427C",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\page_number_block-01-process.png",
+    "metadata_json": {
+      "tags": [
+        "page_number",
+        "process",
+        "academic",
+        "education"
+      ],
+      "recommended_usage": "page_number_block",
+      "source_layout_type": "process",
+      "source_slide_id": "process_slide-03-academic"
+    },
+    "status": "seed",
+    "tags": [
+      "page_number",
+      "process",
+      "academic",
+      "education"
+    ],
+    "tags_json": [
+      "page_number",
+      "process",
+      "academic",
+      "education"
+    ]
+  },
+  {
+    "component_id": "page_number_block-02-process",
+    "component_type": "page_number",
+    "component_subtype": "page_number_block_2",
+    "source_slide_id": "process_slide-04-creative",
+    "layout_type": "process",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "creative",
+    "color_token": "#164E63",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\page_number_block-02-process.png",
+    "metadata_json": {
+      "tags": [
+        "page_number",
+        "process",
+        "creative",
+        "marketing"
+      ],
+      "recommended_usage": "page_number_block",
+      "source_layout_type": "process",
+      "source_slide_id": "process_slide-04-creative"
+    },
+    "status": "seed",
+    "tags": [
+      "page_number",
+      "process",
+      "creative",
+      "marketing"
+    ],
+    "tags_json": [
+      "page_number",
+      "process",
+      "creative",
+      "marketing"
+    ]
+  },
+  {
+    "component_id": "page_number_block-03-process",
+    "component_type": "page_number",
+    "component_subtype": "page_number_block_3",
+    "source_slide_id": "process_slide-05-government",
+    "layout_type": "process",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "government",
+    "color_token": "#7F1D1D",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\page_number_block-03-process.png",
+    "metadata_json": {
+      "tags": [
+        "page_number",
+        "process",
+        "government"
+      ],
+      "recommended_usage": "page_number_block",
+      "source_layout_type": "process",
+      "source_slide_id": "process_slide-05-government"
+    },
+    "status": "seed",
+    "tags": [
+      "page_number",
+      "process",
+      "government"
+    ],
+    "tags_json": [
+      "page_number",
+      "process",
+      "government"
+    ]
+  },
+  {
+    "component_id": "icon_block-01-process",
+    "component_type": "icon",
+    "component_subtype": "icon_block_1",
+    "source_slide_id": "process_slide-06-finance",
+    "layout_type": "process",
+    "bounding_box": "x:0.08,y:0.10,w:0.68,h:0.22",
+    "style_token": "finance",
+    "color_token": "#0F5132",
+    "width_ratio": 0.72,
+    "height_ratio": 0.24,
+    "preview_image": "ppt_template_library\\preview\\components\\icon_block-01-process.png",
+    "metadata_json": {
+      "tags": [
+        "icon",
+        "process",
+        "finance"
+      ],
+      "recommended_usage": "icon_block",
+      "source_layout_type": "process",
+      "source_slide_id": "process_slide-06-finance"
+    },
+    "status": "seed",
+    "tags": [
+      "icon",
+      "process",
+      "finance"
+    ],
+    "tags_json": [
+      "icon",
+      "process",
+      "finance"
+    ]
+  },
+  {
+    "component_id": "icon_block-02-process",
+    "component_type": "icon",
+    "component_subtype": "icon_block_2",
+    "source_slide_id": "process_slide-07-minimal",
+    "layout_type": "process",
+    "bounding_box": "x:0.10,y:0.13,w:0.63,h:0.26",
+    "style_token": "minimal",
+    "color_token": "#334155",
+    "width_ratio": 0.64,
+    "height_ratio": 0.29,
+    "preview_image": "ppt_template_library\\preview\\components\\icon_block-02-process.png",
+    "metadata_json": {
+      "tags": [
+        "icon",
+        "process",
+        "minimal",
+        "consulting"
+      ],
+      "recommended_usage": "icon_block",
+      "source_layout_type": "process",
+      "source_slide_id": "process_slide-07-minimal"
+    },
+    "status": "seed",
+    "tags": [
+      "icon",
+      "process",
+      "minimal",
+      "consulting"
+    ],
+    "tags_json": [
+      "icon",
+      "process",
+      "minimal",
+      "consulting"
+    ]
+  },
+  {
+    "component_id": "icon_block-03-process",
+    "component_type": "icon",
+    "component_subtype": "icon_block_3",
+    "source_slide_id": "process_slide-08-dark",
+    "layout_type": "process",
+    "bounding_box": "x:0.12,y:0.16,w:0.58,h:0.30",
+    "style_token": "dark",
+    "color_token": "#E5E7EB",
+    "width_ratio": 0.56,
+    "height_ratio": 0.34,
+    "preview_image": "ppt_template_library\\preview\\components\\icon_block-03-process.png",
+    "metadata_json": {
+      "tags": [
+        "icon",
+        "process",
+        "dark",
+        "ai"
+      ],
+      "recommended_usage": "icon_block",
+      "source_layout_type": "process",
+      "source_slide_id": "process_slide-08-dark"
+    },
+    "status": "seed",
+    "tags": [
+      "icon",
+      "process",
+      "dark",
+      "ai"
+    ],
+    "tags_json": [
+      "icon",
+      "process",
+      "dark",
+      "ai"
+    ]
+  }
+]

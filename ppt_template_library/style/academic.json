@@ -1,0 +1,30 @@
+[
+  {
+    "template_id": "scaffold-0005",
+    "template_name": "Claude Skill Slide Kit",
+    "quality_score": 100,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0005.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0035",
+    "template_name": "GBIF PowerPoint Template",
+    "quality_score": 97,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0035.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0038",
+    "template_name": "THU-PPT-Theme",
+    "quality_score": 94,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0038.png",
+    "status": "scaffold"
+  },
+  {
+    "template_id": "scaffold-0148",
+    "template_name": "GitHub topic: research",
+    "quality_score": 74,
+    "preview_image": "ppt_template_library\\preview\\templates\\scaffold-0148.png",
+    "status": "scaffold"
+  }
+]
