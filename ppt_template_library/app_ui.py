@@ -307,10 +307,15 @@ def _render_assembly_tab() -> None:
         if not page_plan_df.empty and '页面类型' in page_plan_df.columns:
             page_plan_df['页面类型'] = page_plan_df['页面类型'].astype(str).map(_humanize_slide_type)
         st.dataframe(page_plan_df, use_container_width=True, hide_index=True)
-        pages_df = pd.DataFrame(outline['pages']).rename(columns={'section': '章节', 'title': '标题', 'layout_type': '布局类型', 'tag': '标签'})
+        pages_df = pd.DataFrame(outline['pages']).rename(columns={'page_no': '页码', 'section': '章节', 'title': '标题', 'subtitle': '副标题', 'layout_type': '布局类型', 'bullets': '要点', 'tag': '标签', 'recommended_slide_ids': '候选页'})
         if not pages_df.empty and '布局类型' in pages_df.columns:
             pages_df['布局类型'] = pages_df['布局类型'].astype(str).map(_humanize_layout)
+        if not pages_df.empty and '要点' in pages_df.columns:
+            pages_df['要点'] = pages_df['要点'].apply(lambda value: '；'.join(map(str, value[:4])) if isinstance(value, list) else str(value))
+        if not pages_df.empty and '候选页' in pages_df.columns:
+            pages_df['候选页'] = pages_df['候选页'].apply(lambda value: '；'.join(map(str, value[:3])) if isinstance(value, list) else str(value))
         st.dataframe(pages_df, use_container_width=True, hide_index=True)
+
         st.download_button('下载方案文件', data=json.dumps(outline, ensure_ascii=False, indent=2).encode('utf-8'), file_name='page_assembly_outline.json', mime='application/json', use_container_width=True)
 
 

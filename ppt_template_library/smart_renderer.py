@@ -552,7 +552,7 @@ def _render_ending(slide: Any, palette: Palette, page: dict[str, Any], total_pag
     _set_fill(block, palette.primary)
     _set_line(block)
     _add_text(slide, page['title'], 0.0, 2.56, 13.333, 0.52, 32, RGBColor(255, 255, 255), True, PP_ALIGN.CENTER)
-    _add_text(slide, page.get('subtitle', 'Thank You'), 0.0, 3.2, 13.333, 0.24, 12, RGBColor(219, 228, 240), True, PP_ALIGN.CENTER)
+    _add_text(slide, page.get('subtitle', '谢谢联听'), 0.0, 3.2, 13.333, 0.24, 12, RGBColor(219, 228, 240), True, PP_ALIGN.CENTER)
     _add_text(slide, '\u4e0b\u4e00\u6b65\u805a\u7126 Q4 \u884c\u52a8\u548c\u5173\u952e\u98ce\u9669\u8ddf\u8fdb\u3002', 0.0, 4.35, 13.333, 0.2, 11, palette.muted, align=PP_ALIGN.CENTER)
     _footer(slide, palette, total_pages, total_pages)
 
@@ -1173,7 +1173,7 @@ def _render_ending(slide: Any, palette: Palette, page: dict[str, Any], total_pag
     _set_fill(block, palette.primary)
     _set_line(block)
     _add_text(slide, page['title'], 0.0, 2.56, 13.333, 0.52, 32, RGBColor(255, 255, 255), True, PP_ALIGN.CENTER)
-    _add_text(slide, page.get('subtitle', 'Thank You'), 0.0, 3.2, 13.333, 0.24, 12, RGBColor(219, 228, 240), True, PP_ALIGN.CENTER)
+    _add_text(slide, page.get('subtitle', '谢谢联听'), 0.0, 3.2, 13.333, 0.24, 12, RGBColor(219, 228, 240), True, PP_ALIGN.CENTER)
     _add_text(slide, '\u4e0b\u4e00\u6b65\u805a\u7126 Q4 \u884c\u52a8\u548c\u5173\u952e\u98ce\u9669\u8ddf\u8fdb\u3002', 0.0, 4.35, 13.333, 0.2, 11, palette.muted, align=PP_ALIGN.CENTER)
     _footer(slide, palette, total_pages, total_pages)
 
