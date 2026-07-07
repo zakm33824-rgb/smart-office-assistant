@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import io
 import os
+import base64
 import subprocess
 import sys
 import json
@@ -140,17 +141,49 @@ def setup_page() -> None:
     st.markdown(
         '''
         <style>
+        html, body, [data-testid="stAppViewContainer"] {height: 100%; background: transparent !important;}
+        [data-testid="stAppViewContainer"] > .main {background: transparent !important;}
+        [data-testid="stHeader"], [data-testid="stToolbar"], .stDeployButton, #MainMenu, footer {display: none !important;}
+        .stApp {background: transparent !important;}
         .block-container {padding-top: 1.2rem; padding-bottom: 2rem;}
-        [data-testid="stSidebar"] {background: #f6f8fb;}
-        [data-testid="stToolbar"], .stDeployButton, #MainMenu, footer {display: none !important;}
+        [data-testid="stSidebar"] {background: rgba(246, 248, 251, 0.92);}
         h1, h2, h3 {letter-spacing: 0 !important;}
-        .office-card {border: 1px solid #e6ebf2; border-radius: 8px; padding: 16px 18px; background: #ffffff; margin-bottom: 12px;}
+        .office-card {border: 1px solid #e6ebf2; border-radius: 8px; padding: 16px 18px; background: rgba(255, 255, 255, 0.94); margin-bottom: 12px;}
         .small-muted {color: #667085; font-size: 0.92rem;}
         .metric-pill {display: inline-block; padding: 4px 10px; border-radius: 999px; background: #eef5ff; color: #245a8d; font-size: 0.85rem; margin-right: 6px; margin-bottom: 6px;}
+        .office-video-bg {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -2;
+            pointer-events: none;
+            filter: saturate(0.95) contrast(1.02) brightness(0.78);
+        }
+        .office-video-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background: linear-gradient(180deg, rgba(7, 10, 18, 0.42) 0%, rgba(10, 14, 24, 0.32) 100%);
+        }
         </style>
         ''',
         unsafe_allow_html=True,
     )
+    background_path = Path(__file__).resolve().parent / 'assets' / 'background.mp4'
+    if background_path.exists():
+        video_b64 = base64.b64encode(background_path.read_bytes()).decode('ascii')
+        st.markdown(
+            f'''
+            <video class="office-video-bg" autoplay loop muted playsinline>
+                <source src="data:video/mp4;base64,{video_b64}" type="video/mp4">
+            </video>
+            <div class="office-video-overlay"></div>
+            ''',
+            unsafe_allow_html=True,
+        )
 
 
 def normalize_text(text: str) -> str:
