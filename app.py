@@ -86,58 +86,60 @@ APP_TITLE = '轻量化智能办公助手'
 DEFAULT_PPT_PROMPT = '生成一份Q3产品运营复盘PPT，包含业绩概况、用户增长、问题分析、下月规划4个章节'
 DEFAULT_TABLE_PROMPT = '生成2024年各门店营收表，包含门店名、月度营收、同比增速、排名4列，填充合理示例数据'
 
+
 STYLE_UI_TO_CODE = {
-    '\u7b80\u7ea6\u5546\u52a1': 'business',
-    '\u5b66\u672f\u6c47\u62a5': 'academic',
-    '\u521b\u610f\u6f14\u793a': 'creative',
-    '\u79d1\u6280\u84dd': 'technology',
-    '\u91d1\u878d\u7eff': 'finance',
-    '\u653f\u52a1\u7ea2': 'government',
-    '\u6781\u7b80\u767d': 'minimal',
-    '\u9ed1\u91d1\u9ad8\u7aef': 'dark',
-    '\u53ef\u6301\u7eed\u62a5\u544a': 'eco_report',
-    '\u62fc\u63a5\u4e2a\u4eba\u9875': 'split_portfolio',
-    '\u9ed1\u767d\u6587\u6848': 'editorial_copy',
+    '简约商务': 'business',
+    '学术汇报': 'academic',
+    '创意演示': 'creative',
+    '科技蓝': 'technology',
+    '金融绿': 'finance',
+    '政务红': 'government',
+    '极简白': 'minimal',
+    '黑金高端': 'dark',
+    '可持续报告': 'eco_report',
+    '拼接个人页': 'split_portfolio',
+    '黑白文案': 'editorial_copy',
 }
 STYLE_CODE_TO_UI = {
-    'business': '\u7b80\u7ea6\u5546\u52a1',
-    'academic': '\u5b66\u672f\u6c47\u62a5',
-    'creative': '\u521b\u610f\u6f14\u793a',
-    'technology': '\u79d1\u6280\u84dd',
-    'finance': '\u91d1\u878d\u7eff',
-    'government': '\u653f\u52a1\u7ea2',
-    'minimal': '\u6781\u7b80\u767d',
-    'dark': '\u9ed1\u91d1\u9ad8\u7aef',
-    'eco_report': '\u53ef\u6301\u7eed\u62a5\u544a',
-    'split_portfolio': '\u62fc\u63a5\u4e2a\u4eba\u9875',
-    'editorial_copy': '\u9ed1\u767d\u6587\u6848',
+    'business': '简约商务',
+    'academic': '学术汇报',
+    'creative': '创意演示',
+    'technology': '科技蓝',
+    'finance': '金融绿',
+    'government': '政务红',
+    'minimal': '极简白',
+    'dark': '黑金高端',
+    'eco_report': '可持续报告',
+    'split_portfolio': '拼接个人页',
+    'editorial_copy': '黑白文案',
 }
 
 PPT_STYLES: dict[str, dict[str, RGBColor]] = {
-    '\u7b80\u7ea6\u5546\u52a1': {'bg': RGBColor(247, 249, 252), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(32, 83, 117), 'accent': RGBColor(0, 152, 138), 'text': RGBColor(38, 45, 52), 'muted': RGBColor(99, 110, 123), 'light': RGBColor(228, 238, 244)},
-    '\u5b66\u672f\u6c47\u62a5': {'bg': RGBColor(248, 248, 245), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(74, 66, 124), 'accent': RGBColor(153, 111, 44), 'text': RGBColor(42, 42, 46), 'muted': RGBColor(105, 103, 98), 'light': RGBColor(235, 232, 244)},
-    '\u521b\u610f\u6f14\u793a': {'bg': RGBColor(250, 250, 255), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(31, 76, 153), 'accent': RGBColor(228, 98, 74), 'text': RGBColor(32, 39, 52), 'muted': RGBColor(94, 103, 120), 'light': RGBColor(235, 241, 255)},
-    '\u79d1\u6280\u84dd': {'bg': RGBColor(244, 248, 255), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(18, 60, 122), 'accent': RGBColor(47, 128, 237), 'text': RGBColor(21, 28, 43), 'muted': RGBColor(102, 112, 133), 'light': RGBColor(225, 235, 250)},
-    '\u91d1\u878d\u7eff': {'bg': RGBColor(245, 251, 247), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(28, 108, 79), 'accent': RGBColor(59, 179, 113), 'text': RGBColor(27, 40, 35), 'muted': RGBColor(92, 123, 111), 'light': RGBColor(226, 244, 233)},
-    '\u653f\u52a1\u7ea2': {'bg': RGBColor(253, 247, 247), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(139, 30, 45), 'accent': RGBColor(201, 54, 62), 'text': RGBColor(42, 29, 29), 'muted': RGBColor(139, 110, 110), 'light': RGBColor(248, 228, 230)},
-    '\u6781\u7b80\u767d': {'bg': RGBColor(249, 250, 251), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(17, 24, 39), 'accent': RGBColor(59, 130, 246), 'text': RGBColor(17, 24, 39), 'muted': RGBColor(107, 114, 128), 'light': RGBColor(229, 231, 235)},
-    '\u9ed1\u91d1\u9ad8\u7aef': {'bg': RGBColor(15, 17, 21), 'panel': RGBColor(23, 26, 33), 'primary': RGBColor(229, 195, 106), 'accent': RGBColor(245, 166, 35), 'text': RGBColor(245, 247, 250), 'muted': RGBColor(167, 176, 191), 'light': RGBColor(35, 38, 47)},
-    '\u53ef\u6301\u7eed\u62a5\u544a': {'bg': RGBColor(250, 245, 226), 'panel': RGBColor(255, 255, 252), 'primary': RGBColor(62, 138, 148), 'accent': RGBColor(245, 190, 66), 'text': RGBColor(44, 66, 70), 'muted': RGBColor(98, 121, 121), 'light': RGBColor(220, 242, 238)},
-    '\u62fc\u63a5\u4e2a\u4eba\u9875': {'bg': RGBColor(4, 64, 92), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(255, 247, 238), 'accent': RGBColor(255, 94, 58), 'text': RGBColor(245, 248, 250), 'muted': RGBColor(198, 210, 218), 'light': RGBColor(12, 84, 117)},
-    '\u9ed1\u767d\u6587\u6848': {'bg': RGBColor(230, 227, 214), 'panel': RGBColor(244, 241, 231), 'primary': RGBColor(44, 38, 82), 'accent': RGBColor(61, 55, 122), 'text': RGBColor(28, 28, 31), 'muted': RGBColor(75, 73, 84), 'light': RGBColor(236, 233, 225)},
+    '简约商务': {'bg': RGBColor(247, 249, 252), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(32, 83, 117), 'accent': RGBColor(0, 152, 138), 'text': RGBColor(38, 45, 52), 'muted': RGBColor(99, 110, 123), 'light': RGBColor(228, 238, 244)},
+    '学术汇报': {'bg': RGBColor(248, 248, 245), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(74, 66, 124), 'accent': RGBColor(153, 111, 44), 'text': RGBColor(42, 42, 46), 'muted': RGBColor(105, 103, 98), 'light': RGBColor(235, 232, 244)},
+    '创意演示': {'bg': RGBColor(250, 250, 255), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(31, 76, 153), 'accent': RGBColor(228, 98, 74), 'text': RGBColor(32, 39, 52), 'muted': RGBColor(94, 103, 120), 'light': RGBColor(235, 241, 255)},
+    '科技蓝': {'bg': RGBColor(244, 248, 255), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(18, 60, 122), 'accent': RGBColor(47, 128, 237), 'text': RGBColor(21, 28, 43), 'muted': RGBColor(102, 112, 133), 'light': RGBColor(225, 235, 250)},
+    '金融绿': {'bg': RGBColor(245, 251, 247), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(28, 108, 79), 'accent': RGBColor(59, 179, 113), 'text': RGBColor(27, 40, 35), 'muted': RGBColor(92, 123, 111), 'light': RGBColor(226, 244, 233)},
+    '政务红': {'bg': RGBColor(253, 247, 247), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(139, 30, 45), 'accent': RGBColor(201, 54, 62), 'text': RGBColor(42, 29, 29), 'muted': RGBColor(139, 110, 110), 'light': RGBColor(248, 228, 230)},
+    '极简白': {'bg': RGBColor(249, 250, 251), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(17, 24, 39), 'accent': RGBColor(59, 130, 246), 'text': RGBColor(17, 24, 39), 'muted': RGBColor(107, 114, 128), 'light': RGBColor(229, 231, 235)},
+    '黑金高端': {'bg': RGBColor(15, 17, 21), 'panel': RGBColor(23, 26, 33), 'primary': RGBColor(229, 195, 106), 'accent': RGBColor(245, 166, 35), 'text': RGBColor(245, 247, 250), 'muted': RGBColor(167, 176, 191), 'light': RGBColor(35, 38, 47)},
+    '可持续报告': {'bg': RGBColor(250, 245, 226), 'panel': RGBColor(255, 255, 252), 'primary': RGBColor(62, 138, 148), 'accent': RGBColor(245, 190, 66), 'text': RGBColor(44, 66, 70), 'muted': RGBColor(98, 121, 121), 'light': RGBColor(220, 242, 238)},
+    '拼接个人页': {'bg': RGBColor(4, 64, 92), 'panel': RGBColor(255, 255, 255), 'primary': RGBColor(255, 247, 238), 'accent': RGBColor(255, 94, 58), 'text': RGBColor(245, 248, 250), 'muted': RGBColor(198, 210, 218), 'light': RGBColor(12, 84, 117)},
+    '黑白文案': {'bg': RGBColor(230, 227, 214), 'panel': RGBColor(244, 241, 231), 'primary': RGBColor(44, 38, 82), 'accent': RGBColor(61, 55, 122), 'text': RGBColor(28, 28, 31), 'muted': RGBColor(75, 73, 84), 'light': RGBColor(236, 233, 225)},
 }
+
 HEX_STYLES: dict[str, dict[str, str]] = {
-    '\u7b80\u7ea6\u5546\u52a1': {'bg': 'F7F9FC', 'panel': 'FFFFFF', 'primary': '205375', 'accent': '00988A', 'text': '262D34', 'muted': '636E7B', 'light': 'E4EEF4'},
-    '\u5b66\u672f\u6c47\u62a5': {'bg': 'F8F8F5', 'panel': 'FFFFFF', 'primary': '4A427C', 'accent': '996F2C', 'text': '2A2A2E', 'muted': '69675E', 'light': 'EBE8F4'},
-    '\u521b\u610f\u6f14\u793a': {'bg': 'FAFAFF', 'panel': 'FFFFFF', 'primary': '1F4C99', 'accent': 'E4624A', 'text': '202734', 'muted': '5E6778', 'light': 'EBF1FF'},
-    '\u79d1\u6280\u84dd': {'bg': 'F4F8FF', 'panel': 'FFFFFF', 'primary': '123C7A', 'accent': '2F80ED', 'text': '151C2B', 'muted': '667085', 'light': 'E1EBFA'},
-    '\u91d1\u878d\u7eff': {'bg': 'F5FBF7', 'panel': 'FFFFFF', 'primary': '1C6C4F', 'accent': '3BB371', 'text': '1B2823', 'muted': '5C7B6F', 'light': 'E2F4EA'},
-    '\u653f\u52a1\u7ea2': {'bg': 'FDF7F7', 'panel': 'FFFFFF', 'primary': '8B1E2D', 'accent': 'C9363E', 'text': '2A1D1D', 'muted': '8B6E6E', 'light': 'F8E4E6'},
-    '\u6781\u7b80\u767d': {'bg': 'F9FAFB', 'panel': 'FFFFFF', 'primary': '111827', 'accent': '3B82F6', 'text': '111827', 'muted': '6B7280', 'light': 'E5E7EB'},
-    '\u9ed1\u91d1\u9ad8\u7aef': {'bg': '0F1115', 'panel': '171A21', 'primary': 'E5C36A', 'accent': 'F5A623', 'text': 'F5F7FA', 'muted': 'A7B0BF', 'light': '23262F'},
-    '\u53ef\u6301\u7eed\u62a5\u544a': {'bg': 'FAF5E2', 'panel': 'FFFEFC', 'primary': '3E8A94', 'accent': 'F5BE42', 'text': '2C4246', 'muted': '627979', 'light': 'DCF2EE'},
-    '\u62fc\u63a5\u4e2a\u4eba\u9875': {'bg': '04405C', 'panel': 'FFFFFF', 'primary': 'FFF7EE', 'accent': 'FF5E3A', 'text': 'F5F8FA', 'muted': 'C6D2DA', 'light': '0C5475'},
-    '\u9ed1\u767d\u6587\u6848': {'bg': 'E6E3D6', 'panel': 'F4F1E7', 'primary': '2C2652', 'accent': '3D377A', 'text': '1C1C1F', 'muted': '4B4954', 'light': 'ECE9E1'},
+    '简约商务': {'bg': 'F7F9FC', 'panel': 'FFFFFF', 'primary': '205375', 'accent': '00988A', 'text': '262D34', 'muted': '636E7B', 'light': 'E4EEF4'},
+    '学术汇报': {'bg': 'F8F8F5', 'panel': 'FFFFFF', 'primary': '4A427C', 'accent': '996F2C', 'text': '2A2A2E', 'muted': '69675E', 'light': 'EBE8F4'},
+    '创意演示': {'bg': 'FAFAFF', 'panel': 'FFFFFF', 'primary': '1F4C99', 'accent': 'E4624A', 'text': '202734', 'muted': '5E6778', 'light': 'EBF1FF'},
+    '科技蓝': {'bg': 'F4F8FF', 'panel': 'FFFFFF', 'primary': '123C7A', 'accent': '2F80ED', 'text': '151C2B', 'muted': '667085', 'light': 'E1EBFA'},
+    '金融绿': {'bg': 'F5FBF7', 'panel': 'FFFFFF', 'primary': '1C6C4F', 'accent': '3BB371', 'text': '1B2823', 'muted': '5C7B6F', 'light': 'E2F4EA'},
+    '政务红': {'bg': 'FDF7F7', 'panel': 'FFFFFF', 'primary': '8B1E2D', 'accent': 'C9363E', 'text': '2A1D1D', 'muted': '8B6E6E', 'light': 'F8E4E6'},
+    '极简白': {'bg': 'F9FAFB', 'panel': 'FFFFFF', 'primary': '111827', 'accent': '3B82F6', 'text': '111827', 'muted': '6B7280', 'light': 'E5E7EB'},
+    '黑金高端': {'bg': '0F1115', 'panel': '171A21', 'primary': 'E5C36A', 'accent': 'F5A623', 'text': 'F5F7FA', 'muted': 'A7B0BF', 'light': '23262F'},
+    '可持续报告': {'bg': 'FAF5E2', 'panel': 'FFFEFC', 'primary': '3E8A94', 'accent': 'F5BE42', 'text': '2C4246', 'muted': '627979', 'light': 'DCF2EE'},
+    '拼接个人页': {'bg': '04405C', 'panel': 'FFFFFF', 'primary': 'FFF7EE', 'accent': 'FF5E3A', 'text': 'F5F8FA', 'muted': 'C6D2DA', 'light': '0C5475'},
+    '黑白文案': {'bg': 'E6E3D6', 'panel': 'F4F1E7', 'primary': '2C2652', 'accent': '3D377A', 'text': '1C1C1F', 'muted': '4B4954', 'light': 'ECE9E1'},
 }
 STORE_NAMES = ['星河旗舰店', '晨光中心店', '云栖体验店', '远山旗舰店', '海韵门店', '启航门店', '未来门店', '明日门店', '极光门店', '城市会客厅']
 REGIONS = ['华东', '华北', '华南', '西南', '西北', '华中', '东北', '海外']
@@ -1317,20 +1319,20 @@ def _render_outline_editor(plan: dict[str, Any]) -> pd.DataFrame:
     return edited_df
 
 
-STYLE_VARIANT_GROUPS: dict[str, list[str]] = {
-    'business': ['\u7b80\u7ea6\u5546\u52a1', '\u6781\u7b80\u767d', '\u79d1\u6280\u84dd'],
-    'academic': ['\u5b66\u672f\u6c47\u62a5', '\u6781\u7b80\u767d', '\u653f\u52a1\u7ea2'],
-    'creative': ['\u521b\u610f\u6f14\u793a', '\u79d1\u6280\u84dd', '\u9ed1\u91d1\u9ad8\u7aef'],
-    'technology': ['\u79d1\u6280\u84dd', '\u9ed1\u91d1\u9ad8\u7aef', '\u7b80\u7ea6\u5546\u52a1'],
-    'finance': ['\u91d1\u878d\u7eff', '\u7b80\u7ea6\u5546\u52a1', '\u9ed1\u91d1\u9ad8\u7aef'],
-    'government': ['\u653f\u52a1\u7ea2', '\u7b80\u7ea6\u5546\u52a1', '\u6781\u7b80\u767d'],
-    'minimal': ['\u6781\u7b80\u767d', '\u7b80\u7ea6\u5546\u52a1', '\u5b66\u672f\u6c47\u62a5'],
-    'dark': ['\u9ed1\u91d1\u9ad8\u7aef', '\u79d1\u6280\u84dd', '\u91d1\u878d\u7eff'],
-    'eco_report': ['\u53ef\u6301\u7eed\u62a5\u544a', '\u62fc\u63a5\u4e2a\u4eba\u9875', '\u9ed1\u767d\u6587\u6848'],
-    'split_portfolio': ['\u62fc\u63a5\u4e2a\u4eba\u9875', '\u9ed1\u767d\u6587\u6848', '\u53ef\u6301\u7eed\u62a5\u544a'],
-    'editorial_copy': ['\u9ed1\u767d\u6587\u6848', '\u62fc\u63a5\u4e2a\u4eba\u9875', '\u53ef\u6301\u7eed\u62a5\u544a'],
-}
 
+STYLE_VARIANT_GROUPS: dict[str, list[str]] = {
+    'business': ['简约商务', '极简白', '科技蓝'],
+    'academic': ['学术汇报', '极简白', '政务红'],
+    'creative': ['创意演示', '科技蓝', '黑金高端'],
+    'technology': ['科技蓝', '黑金高端', '简约商务'],
+    'finance': ['金融绿', '简约商务', '黑金高端'],
+    'government': ['政务红', '简约商务', '极简白'],
+    'minimal': ['极简白', '简约商务', '学术汇报'],
+    'dark': ['黑金高端', '科技蓝', '金融绿'],
+    'eco_report': ['可持续报告', '拼接个人页', '黑白文案'],
+    'split_portfolio': ['拼接个人页', '黑白文案', '可持续报告'],
+    'editorial_copy': ['黑白文案', '拼接个人页', '可持续报告'],
+}
 LAYOUT_LABELS = {
 
 

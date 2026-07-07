@@ -278,7 +278,7 @@ def _render_cover(slide: Any, palette: Palette, plan: dict[str, Any], page: dict
     ribbon = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0), Inches(2.05), Inches(13.333), Inches(0.18))
     _set_fill(ribbon, palette.accent)
     _set_line(ribbon)
-    _add_text(slide, 'Q3 BUSINESS REVIEW', 0.82, 0.42, 3.2, 0.18, 9, RGBColor(220, 232, 245), True)
+    _add_text(slide, page.get('subtitle', ''), 0.82, 0.42, 3.2, 0.18, 9, RGBColor(220, 232, 245), True)
     _add_text(slide, plan['title'], 0.78, 0.83, 9.0, 0.76, 34, RGBColor(255, 255, 255), True)
     _add_text(slide, plan['subtitle'], 0.82, 1.58, 8.0, 0.28, 12, RGBColor(218, 229, 239))
     _add_badge(slide, plan.get('style', 'style'), 10.15, 0.4, 2.0, palette.accent2, RGBColor(255, 255, 255))
@@ -303,7 +303,7 @@ def _render_cover(slide: Any, palette: Palette, plan: dict[str, Any], page: dict
 
 def _render_agenda(slide: Any, palette: Palette, page: dict[str, Any], total_pages: int) -> None:
     _add_text(slide, '目录', 0.78, 0.5, 2.2, 0.52, 26, palette.primary, True)
-    _add_text(slide, 'Agenda / Content Map', 0.82, 1.08, 3.0, 0.2, 10, palette.muted, True)
+    _add_text(slide, page.get('subtitle', ''), 0.82, 1.08, 3.0, 0.2, 10, palette.muted, True)
     timeline = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(1.05), Inches(2.04), Inches(11.05), Inches(0.03))
     _set_fill(timeline, palette.line)
     _set_line(timeline)
@@ -328,15 +328,11 @@ def _render_section(slide: Any, palette: Palette, page: dict[str, Any], total_pa
     _add_text(slide, page['title'], 0.72, 0.48, 9.5, 0.5, 24, palette.primary, True)
     _add_text(slide, page.get('subtitle', ''), 0.76, 1.03, 5.0, 0.22, 11, palette.muted)
     _add_card(slide, 0.82, 1.75, 11.6, 3.75, palette.paper, palette.line)
-    _add_text(slide, '章节导语', 1.08, 2.0, 1.5, 0.22, 15, palette.primary, True)
-    _add_multiline(slide, [
-        '本页用于切换叙事节奏，承接上一章节结论，',
-        '为下一页的分析、图表或行动计划建立语境。',
-        '它不是纯装饰页，而是有明确信息层次的过渡页。',
-    ], 1.08, 2.42, 5.0, 1.1, palette.text, 15)
+    _add_text(slide, page.get('section', '') or page.get('title', ''), 1.08, 2.0, 4.0, 0.22, 15, palette.primary, True)
+    _add_multiline(slide, page.get('bullets', [])[:3] or ['结论先行', '数据支撑', '行动落地'], 1.08, 2.42, 5.0, 1.1, palette.text, 15)
     _add_card(slide, 7.0, 2.0, 4.95, 2.95, palette.soft, palette.line)
-    _add_text(slide, '关键提示', 7.28, 2.32, 1.5, 0.2, 15, palette.primary, True)
-    _add_multiline(slide, ['结论先行', '重点明确', '留白充足', '视觉简洁'], 7.32, 2.7, 2.3, 1.1, palette.text, 18)
+    _add_text(slide, page.get('section', '') or page.get('title', ''), 7.28, 2.32, 3.0, 0.2, 15, palette.primary, True)
+    _add_multiline(slide, page.get('bullets', [])[:4] or ['结论先行', '重点明确', '留白充足', '视觉简洁'], 7.32, 2.7, 2.3, 1.1, palette.text, 18)
     _footer(slide, palette, page['page_no'], total_pages)
 
 
@@ -372,11 +368,11 @@ def _render_data_page(slide: Any, palette: Palette, page: dict[str, Any], total_
     for idx, metric in enumerate(metrics[:3]):
         _metric_card(slide, palette, metric, 0.78 + idx * 2.83, 1.3, 2.55)
     _add_card(slide, 0.78, 2.48, 7.4, 4.0, palette.paper, palette.line)
-    _add_text(slide, '趋势图', 1.08, 2.72, 1.2, 0.2, 15, palette.primary, True)
+    _add_text(slide, page.get('section', '') or page.get('title', ''), 1.08, 2.72, 2.0, 0.2, 15, palette.primary, True)
     chart_kind = 'line' if page.get('layout_type') in {'dashboard', 'kpi'} else 'bar'
     _chart_from_df(df, palette, slide, 1.0, 3.02, 6.9, 2.9, chart_kind=chart_kind)
     _add_card(slide, 8.45, 2.48, 4.1, 4.0, palette.soft, palette.line)
-    _add_text(slide, '数据解读', 8.75, 2.72, 1.5, 0.22, 15, palette.primary, True)
+    _add_text(slide, page.get('section', '') or page.get('title', ''), 8.75, 2.72, 2.4, 0.22, 15, palette.primary, True)
     narrative = page.get('bullets', [])[:4]
     if not narrative:
         narrative = ['围绕数据建立结论', '拆解变化原因', '明确下一步动作']
@@ -411,7 +407,7 @@ def _render_table(slide: Any, palette: Palette, page: dict[str, Any], total_page
         ]
     _simple_table(slide, palette, preview, 0.84, 1.42, 8.0, 4.9)
     _add_card(slide, 9.18, 1.42, 3.36, 4.9, palette.soft, palette.line)
-    _add_text(slide, '表格解读', 9.48, 1.76, 1.6, 0.2, 15, palette.primary, True)
+    _add_text(slide, page.get('section', '') or page.get('title', ''), 9.48, 1.76, 2.4, 0.2, 15, palette.primary, True)
     _add_multiline(slide, page.get('bullets', [])[:4] or ['适合呈现明细、清单、报价、排名和对比信息。', '结合筛选和汇总能直接用于汇报或审批。'], 9.5, 2.18, 2.6, 2.2, palette.text, 14)
     _footer(slide, palette, page['page_no'], total_pages)
 
@@ -460,8 +456,8 @@ def _render_comparison(slide: Any, palette: Palette, page: dict[str, Any], total
     _add_text(slide, page['title'], 0.76, 0.46, 9.4, 0.5, 24, palette.primary, True)
     _add_card(slide, 0.84, 1.55, 5.85, 4.8, palette.paper, palette.line)
     _add_card(slide, 6.64, 1.55, 5.85, 4.8, palette.soft, palette.line)
-    _add_text(slide, '方案 A', 1.1, 1.84, 1.2, 0.2, 16, palette.primary, True)
-    _add_text(slide, '方案 B', 6.92, 1.84, 1.2, 0.2, 16, palette.primary, True)
+    _add_text(slide, page.get('section', '') or 'A', 1.1, 1.84, 1.2, 0.2, 16, palette.primary, True)
+    _add_text(slide, page.get('section', '') or 'B', 6.92, 1.84, 1.2, 0.2, 16, palette.primary, True)
     left_bullets = page.get('bullets', [])[:3] or ['优点：高效', '缺点：成本较高', '适用：成熟业务']
     right_bullets = ['优势：灵活', '风险：需要协同', '适用：快速迭代']
     _add_multiline(slide, left_bullets, 1.1, 2.28, 4.8, 1.8, palette.text, 14)
@@ -507,11 +503,11 @@ def _render_product(slide: Any, palette: Palette, page: dict[str, Any], total_pa
     _add_card(slide, 7.0, 1.52, 5.6, 1.44, palette.soft, palette.line)
     _add_card(slide, 7.0, 3.08, 5.6, 1.44, palette.soft2, palette.line)
     _add_card(slide, 7.0, 4.64, 5.6, 1.44, palette.paper, palette.line)
-    _add_text(slide, '产品价值', 1.08, 1.82, 1.5, 0.2, 16, palette.primary, True)
+    _add_text(slide, page.get('section', '') or page.get('title', ''), 1.08, 1.82, 2.6, 0.2, 16, palette.primary, True)
     _add_multiline(slide, page.get('bullets', [])[:4] or ['功能亮点', '解决问题', '商业价值'], 1.12, 2.22, 4.8, 2.2, palette.text, 14)
-    _add_text(slide, '版本路线图', 7.28, 1.86, 1.8, 0.2, 15, palette.primary, True)
+    _add_text(slide, page.get('section', '') or page.get('title', ''), 7.28, 1.86, 2.8, 0.2, 15, palette.primary, True)
     _tiny_bar_chart(slide, palette, 7.48, 2.22)
-    _add_text(slide, '参数 / 规格 / 说明', 7.28, 3.38, 2.5, 0.2, 15, palette.primary, True)
+    _add_text(slide, page.get('section', '') or page.get('title', ''), 7.28, 3.38, 2.8, 0.2, 15, palette.primary, True)
     _add_multiline(slide, ['尺寸', '性能', '价格', '交付'], 7.34, 3.7, 2.0, 0.8, palette.text, 13)
     _footer(slide, palette, page['page_no'], total_pages)
 
@@ -528,7 +524,7 @@ def _render_gallery(slide: Any, palette: Palette, page: dict[str, Any], total_pa
         image = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(left + 0.16), Inches(top + 0.16), Inches(3.0), Inches(1.15))
         _set_fill(image, palette.soft if idx % 2 == 0 else palette.soft2)
         _set_line(image, palette.line)
-        _add_text(slide, f'Image {idx + 1}', left + 0.2, top + 1.42, 1.0, 0.18, 11, palette.primary, True)
+        _add_text(slide, str(idx + 1), left + 0.2, top + 1.42, 1.0, 0.18, 11, palette.primary, True)
     _footer(slide, palette, page['page_no'], total_pages)
 
 
@@ -546,7 +542,7 @@ def _render_map(slide: Any, palette: Palette, page: dict[str, Any], total_pages:
         dot = slide.shapes.add_shape(MSO_SHAPE.OVAL, Inches(x), Inches(y), Inches(0.18), Inches(0.18))
         _set_fill(dot, palette.accent if idx % 2 else palette.secondary)
         _set_line(dot)
-    _add_text(slide, '区域分布', 8.92, 1.82, 1.4, 0.2, 15, palette.primary, True)
+    _add_text(slide, page.get('section', '') or page.get('title', ''), 8.92, 1.82, 2.4, 0.2, 15, palette.primary, True)
     _add_multiline(slide, page.get('bullets', [])[:4] or ['覆盖范围', '区域热点', '资源分布'], 8.96, 2.24, 2.9, 2.0, palette.text, 14)
     _footer(slide, palette, page['page_no'], total_pages)
 
