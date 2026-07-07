@@ -83,7 +83,7 @@ from ppt_template_library.app_ui import render_template_library_page
 from ppt_template_library.page_engine import build_library_overview, build_page_level_outline
 
 APP_TITLE = '轻量化智能办公助手'
-DEFAULT_PPT_PROMPT = '生成一份Q3产品运营复盘PPT，包含业绩概况、用户增长、问题分析、下月规划4个章节'
+DEFAULT_PPT_PROMPT = '生成一份Q3产品运营复盘演示文稿，包含业绩概况、用户增长、问题分析、下月规划4个章节'
 DEFAULT_TABLE_PROMPT = '生成2024年各门店营收表，包含门店名、月度营收、同比增速、排名4列，填充合理示例数据'
 
 
@@ -804,7 +804,7 @@ def _read_dataframe_from_upload(uploaded_file: Any) -> pd.DataFrame:
     elif name.endswith(('.xlsx', '.xls')):
         df = pd.read_excel(raw)
     else:
-        raise ValueError('仅支持 CSV / XLSX 文件。')
+        raise ValueError('仅支持表格文件。')
     df.columns = [str(col).strip() for col in df.columns]
     return df
 
@@ -1167,12 +1167,11 @@ def _candidate_label(slide_id: str, slide_lookup: pd.DataFrame) -> str:
     row = slide_lookup.loc[slide_id]
     if isinstance(row, pd.DataFrame):
         row = row.iloc[0]
-    return ' | '.join([
-        str(row.get('slide_id', slide_id)),
-        str(row.get('layout_type', '')),
-        str(row.get('style', '')),
-        f"{int(float(row.get('overall_quality_score', 0)))}?",
-    ])
+    score = int(float(row.get('overall_quality_score', 0)))
+    layout = _humanize_layout(str(row.get('layout_type', '')))
+    style = str(row.get('style', ''))
+    parts = [part for part in [layout, style, f'{score}分'] if part]
+    return ' · '.join(parts)
 
 
 def _candidate_ids_for_layout(layout_type: str, slide_lookup: pd.DataFrame, style: str = '') -> list[str]:
@@ -1306,7 +1305,7 @@ def _render_outline_editor(plan: dict[str, Any]) -> pd.DataFrame:
         st.session_state[PLAN_KEY] = _apply_editor_changes(plan, edited_df)
         st.rerun()
     if cols[1].download_button(
-        '导出 JSON',
+        '导出数据文件',
         data=_generate_outline_json(plan),
         file_name='ppt_outline.json',
         mime='application/json',
@@ -1447,7 +1446,7 @@ def _build_candidate_plans(prompt: str, style_label: str, page_range: tuple[int,
         plan = _apply_style_override(plan, variant_style)
         insights = _plan_insights(plan)
         variants.append({
-            'label': f'方案{chr(65 + idx)}',
+            'label': ['方案一', '方案二', '方案三'][idx] if idx < 3 else f'方案{idx + 1}',
             'style_label': variant_style,
             'plan': plan,
             'insights': insights,
@@ -1599,33 +1598,36 @@ def _render_candidate_rows(plan_page: dict[str, Any], slide_lookup: pd.DataFrame
     if rec_df.empty:
         st.info('该页暂无对应候选布局，可以保持自动绘制或再刷新调整。')
         return default_choice
-    preview_cols = [c for c in ['slide_id', 'slide_type', 'slide_subtype', 'layout_type', 'overall_quality_score', 'preview_image'] if c in rec_df.columns]
-    st.dataframe(rec_df[preview_cols].head(3), use_container_width=True, hide_index=True)
+    display_df = pd.DataFrame({
+        '布局类型': rec_df['layout_type'].astype(str).map(_humanize_layout) if 'layout_type' in rec_df.columns else [],
+        '综合评分': rec_df['overall_quality_score'].astype(int) if 'overall_quality_score' in rec_df.columns else [],
+    })
+    st.dataframe(display_df.head(3), use_container_width=True, hide_index=True)
     img_cols = st.columns(min(3, len(rec_df)))
     for idx, (_, row) in enumerate(rec_df.head(3).iterrows()):
         with img_cols[idx]:
             preview_image = str(row.get('preview_image', '')).strip()
             if preview_image and Path(preview_image).exists():
                 st.image(preview_image, use_container_width=True)
-            st.caption(f"{row.get('slide_id', '')} | {row.get('overall_quality_score', 0)}")
+            st.caption(f"候选 {idx + 1} · {_humanize_layout(str(row.get('layout_type', 'content_slide')))} · {int(float(row.get('overall_quality_score', 0)))}分")
     options = ['自动推荐'] + rec_df['slide_id'].astype(str).tolist()
     preferred = str(plan_page.get('selected_slide_id', '')).strip()
     if preferred not in options:
         preferred = options[1] if len(options) > 1 else options[0]
-    choice = st.selectbox('布局选择', options, index=options.index(preferred), key=f'ppt_candidate_choice_{page_no}')
+    choice = st.selectbox('布局选择', options, index=options.index(preferred), key=f'ppt_candidate_choice_{page_no}', format_func=lambda value: default_choice if value == '自动推荐' else _candidate_label(str(value), slide_lookup))
     return choice
 
 
 def render_ppt_workbench() -> None:
-    st.header('PPT 生成工作台')
-    st.caption('先出三套方案，再按页编辑，最后导出 .pptx。')
+    st.header('演示文稿生成工作台')
+    st.caption('先出三套方案，再按页编辑，最后导出演示文稿。')
     left, right = st.columns([1.25, 1])
     with left:
         prompt = st.text_area('需求描述', value=st.session_state.get('ppt_prompt_input', DEFAULT_PPT_PROMPT), height=140, key='ppt_prompt_input')
         style_label = st.selectbox('主风格', list(STYLE_UI_TO_CODE.keys()), index=list(STYLE_UI_TO_CODE.keys()).index(st.session_state.get('ppt_style_input', '简约商务')) if st.session_state.get('ppt_style_input', '简约商务') in STYLE_UI_TO_CODE else 0, key='ppt_style_input')
         page_range = st.slider('页数范围', 6, 16, st.session_state.get('ppt_page_range', (8, 10)), key='ppt_page_range')
     with right:
-        uploaded = st.file_uploader('上传 CSV / XLSX 作为数据参考', type=['csv', 'xlsx', 'xls'], key='ppt_data_upload')
+        uploaded = st.file_uploader('上传表格文件作为数据参考', type=['csv', 'xlsx', 'xls'], key='ppt_data_upload')
         if uploaded is not None:
             try:
                 uploaded_df = _read_dataframe_from_upload(uploaded)
@@ -1653,7 +1655,7 @@ def render_ppt_workbench() -> None:
             st.error(f'生成失败：{exc}')
     variants = st.session_state.get('ppt_candidate_variants', [])
     if not variants:
-        st.info('点击?生成 3 套方案?，我们会先给出三套不同风格的布局方案。')
+        st.info('点击“生成 3 套方案”后，我们会先给出三套不同风格的布局方案。')
         return
     active_idx = int(st.session_state.get('ppt_variant_index', 0))
     active_idx = max(0, min(active_idx, len(variants) - 1))
@@ -1729,20 +1731,20 @@ def render_ppt_workbench() -> None:
     st.subheader('导出')
     export_cols = st.columns(3)
     with export_cols[0]:
-        if st.button('生成 PPTX', type='primary', use_container_width=True):
+        if st.button('生成演示文稿', type='primary', use_container_width=True):
             try:
-                with st.spinner('正在生成 PPTX...'):
+                with st.spinner('正在生成演示文稿...'):
                     out_path, pptx_bytes = _generate_pptx(st.session_state.get(PLAN_KEY, plan), st.session_state.get(UPLOADED_DF_KEY))
                 st.session_state[PPT_PATH_KEY] = str(out_path)
                 st.session_state[PPT_BYTES_KEY] = pptx_bytes
-                st.success(f'已生成：{out_path.name}')
+                st.success('演示文稿已生成')
             except Exception as exc:  # noqa: BLE001
-                st.error(f'PPTX 生成失败：{exc}')
+                st.error(f'演示文稿生成失败：{exc}')
     with export_cols[1]:
         if st.session_state.get(PPT_BYTES_KEY):
-            st.download_button('下载 PPTX', data=st.session_state[PPT_BYTES_KEY], file_name=safe_filename(str(plan.get('title', '智能PPT')), '.pptx'), mime='application/vnd.openxmlformats-officedocument.presentationml.presentation', use_container_width=True)
+            st.download_button('下载演示文稿', data=st.session_state[PPT_BYTES_KEY], file_name=safe_filename(str(plan.get('title', '智能演示文稿')), '.pptx'), mime='application/vnd.openxmlformats-officedocument.presentationml.presentation', use_container_width=True)
     with export_cols[2]:
-        st.download_button('下载大纲 JSON', data=_generate_outline_json(st.session_state.get(PLAN_KEY, plan)), file_name='ppt_outline.json', mime='application/json', use_container_width=True)
+        st.download_button('下载大纲文件', data=_generate_outline_json(st.session_state.get(PLAN_KEY, plan)), file_name='ppt_outline.json', mime='application/json', use_container_width=True)
 def _render_table_downloads(df: pd.DataFrame, summary_df: pd.DataFrame | None, theme_name: str, prefix: str) -> None:
     if df.empty:
         return
@@ -1750,9 +1752,9 @@ def _render_table_downloads(df: pd.DataFrame, summary_df: pd.DataFrame | None, t
     csv_bytes = dataframe_to_bytes(df, 'csv', summary_df=summary_df, theme_name=theme_name)
     cols = st.columns(2)
     with cols[0]:
-        st.download_button(f'下载 {prefix}XLSX', data=xlsx_bytes, file_name=f'{prefix}.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', use_container_width=True)
+        st.download_button('下载电子表格', data=xlsx_bytes, file_name=f'{prefix}.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', use_container_width=True)
     with cols[1]:
-        st.download_button(f'下载 {prefix}CSV', data=csv_bytes, file_name=f'{prefix}.csv', mime='text/csv', use_container_width=True)
+        st.download_button('下载文本表格', data=csv_bytes, file_name=f'{prefix}.csv', mime='text/csv', use_container_width=True)
 
 
 def render_table_workbench() -> None:
@@ -1786,7 +1788,7 @@ def render_table_workbench() -> None:
             st.info('暂无表格数据，请先生成。')
     with tabs[1]:
         st.subheader('文件处理')
-        uploaded = st.file_uploader('上传 CSV / XLSX', type=['csv', 'xlsx', 'xls'], key='table_upload')
+        uploaded = st.file_uploader('上传表格文件', type=['csv', 'xlsx', 'xls'], key='table_upload')
         raw_df = st.session_state.get(UPLOADED_DF_KEY, pd.DataFrame())
         if uploaded is not None:
             try:
@@ -1826,14 +1828,14 @@ def render_table_workbench() -> None:
             if isinstance(processed_df, pd.DataFrame) and not processed_df.empty:
                 st.dataframe(processed_df, use_container_width=True, hide_index=True)
                 export_bytes = dataframe_to_bytes(processed_df, file_format='xlsx', summary_df=summary_df, theme_name=theme_name)
-                st.download_button('下载 XLSX', data=export_bytes, file_name='processed_table.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', use_container_width=True)
+                st.download_button('下载电子表格', data=export_bytes, file_name='processed_table.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', use_container_width=True)
                 csv_bytes = dataframe_to_bytes(processed_df, file_format='csv')
-                st.download_button('下载 CSV', data=csv_bytes, file_name='processed_table.csv', mime='text/csv', use_container_width=True)
+                st.download_button('下载文本表格', data=csv_bytes, file_name='processed_table.csv', mime='text/csv', use_container_width=True)
             if isinstance(summary_df, pd.DataFrame) and not summary_df.empty:
                 st.markdown('**分组汇总**')
                 st.dataframe(summary_df, use_container_width=True, hide_index=True)
         else:
-            st.info('请先上传 CSV 或 XLSX 文件。')
+            st.info('请先上传表格文件。')
 
 
 def render_template_library_workbench() -> None:
@@ -1844,14 +1846,14 @@ def main() -> None:
     setup_page()
     _seed_demo_state()
     st.title(APP_TITLE)
-    st.caption('一个页面里打通 PPT 、表格和模板库。')
+    st.caption('一个页面里打通演示文稿、表格和模板资源库。')
     manifest = st.session_state.get('_office_library_manifest') or load_library_preview_counts()
     sidebar = st.sidebar
     sidebar.subheader('功能切换')
-    sidebar.radio('', ['PPT 生成', '表格工具', '模板资源库'], key='nav_choice', label_visibility='collapsed')
+    sidebar.radio('', ['演示文稿生成', '表格工具', '模板资源库'], key='nav_choice', label_visibility='collapsed')
     sidebar.caption(f"页面: {manifest.get('slide_count', 0)}  组件: {manifest.get('component_count', 0)}  资源: {manifest.get('template_count', 0)}")
-    choice = st.session_state.get('nav_choice', 'PPT 生成')
-    if choice == 'PPT 生成':
+    choice = st.session_state.get('nav_choice', '演示文稿生成')
+    if choice == '演示文稿生成':
         render_ppt_workbench()
     elif choice == '表格工具':
         render_table_workbench()
@@ -1861,3 +1863,6 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
+
+
+

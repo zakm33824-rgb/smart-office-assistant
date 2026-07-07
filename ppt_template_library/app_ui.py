@@ -21,7 +21,7 @@ def _metric_row(summary: dict[str, int | float]) -> None:
     cols[0].metric('来源端点', summary.get('source_count', 0))
     cols[1].metric('仓库来源', summary.get('repository_count', 0))
     cols[2].metric('站点来源', summary.get('site_count', 0))
-    cols[3].metric('Topic 索引', summary.get('topic_count', 0))
+    cols[3].metric('主题索引', summary.get('topic_count', 0))
 
 
 def _table_preview(df: pd.DataFrame, columns: list[str], max_rows: int = 100) -> None:
@@ -91,7 +91,7 @@ def _render_source_tab() -> None:
         filters = SearchFilters()
         c1, c2, c3 = st.columns(3)
         with c1:
-            filters.query = st.text_input('关键词', placeholder='finance / slidev / university / business')
+            filters.query = st.text_input('关键词', placeholder='例如：财务 / 演示文稿 / 大学 / 商业')
             filters.min_score = int(st.slider('最低评分', 0, 100, 70, key='source_min_score'))
         with c2:
             filters.source_types = tuple(st.multiselect('来源类型', sorted(source_df['source_type'].dropna().unique().tolist())))
@@ -102,7 +102,7 @@ def _render_source_tab() -> None:
     filtered = filter_source_dataframe(source_df, filters)
     st.write(f'匹配来源：{len(filtered)}')
     _table_preview(filtered, ['score', 'name', 'source_type', 'license_hint', 'commercial_use_hint', 'programmatic_access', 'source_website', 'source_url'])
-    st.code('ppt_template_library/\n  templates/\n  components/\n  preview/\n  metadata/\n  database/\n  commercial_allowed/\n  personal_use_only/\n  license_uncertain/\n  premium_quality/\n  industry/\n  scenario/\n  style/\n  color/\n  layout/\n  logs/\n  source_records/', language='text')
+    st.code('模板库/\n  资源/\n  组件/\n  预览/\n  元数据/\n  数据库/\n  可商用/\n  个人使用/\n  许可待确认/\n  高质量/\n  行业/\n  场景/\n  风格/\n  色彩/\n  布局/\n  日志/\n  来源记录/', language='text')
 
 
 def _render_page_tab() -> None:
@@ -119,10 +119,10 @@ def _render_page_tab() -> None:
     left, right = st.columns([1.1, 1])
     with left:
         refresh = st.button('刷新示例页面库', use_container_width=True)
-        uploaded = st.file_uploader('上传 PPTX 解析为页面库', type=['pptx'])
+        uploaded = st.file_uploader('上传演示文稿解析为页面库', type=['pptx'])
         if uploaded is not None and st.button('解析并入库', type='primary', use_container_width=True):
             try:
-                with st.spinner('正在解析 PPTX 页面...'):
+                with st.spinner('正在解析演示文稿页面...'):
                     tmp_path = _save_uploaded_pptx(uploaded)
                     result = extract_pptx_to_slide_catalog(tmp_path, source_template_id=Path(uploaded.name).stem, source_url=f'file://{uploaded.name}')
                 st.success(f"已解析 {result.get('ingested', 0)} 页")
@@ -133,7 +133,7 @@ def _render_page_tab() -> None:
             seed_demo_page_library(refresh=True)
             st.rerun()
     with right:
-        st.info('页面库支持页级检索、组件检索、PPTX 解析和智能组装计划。')
+        st.info('页面库支持页级检索、组件检索、演示文稿解析和智能组装计划。')
 
     page_df = load_slide_catalog()
     if page_df.empty:
@@ -181,7 +181,7 @@ def _render_assembly_tab() -> None:
     prompt = st.text_area('需求描述', value='生成一份新能源汽车企业年度经营分析报告，科技蓝风格，需要数据分析、时间轴和总结页。', height=120)
     c1, c2 = st.columns([2, 1])
     with c1:
-        style = st.selectbox('PPT 风格', ['简约商务', '学术汇报', '创意演示', '科技蓝', '金融绿', '政务红', '极简白', '黑金高端'])
+        style = st.selectbox('风格', ['简约商务', '学术汇报', '创意演示', '科技蓝', '金融绿', '政务红', '极简白', '黑金高端'])
         page_range = st.slider('页数范围', 5, 20, (8, 12))
     with c2:
         st.write('')
@@ -201,11 +201,11 @@ def _render_assembly_tab() -> None:
         st.json(outline['design_system'])
         st.dataframe(pd.DataFrame(outline['page_plan']), use_container_width=True, hide_index=True)
         st.dataframe(pd.DataFrame(outline['pages']), use_container_width=True, hide_index=True)
-        st.download_button('下载方案 JSON', data=json.dumps(outline, ensure_ascii=False, indent=2).encode('utf-8'), file_name='page_assembly_outline.json', mime='application/json', use_container_width=True)
+        st.download_button('下载方案文件', data=json.dumps(outline, ensure_ascii=False, indent=2).encode('utf-8'), file_name='page_assembly_outline.json', mime='application/json', use_container_width=True)
 
 
 def render_template_library_page() -> None:
-    st.header('PPT 模板资源库')
+    st.header('演示文稿模板资源库')
     st.caption('页面级模板库、组件级素材库、智能页面检索和跨模板组装计划。')
     ensure_library_structure()
     initialize_slide_storage()
@@ -218,3 +218,4 @@ def render_template_library_page() -> None:
         _render_component_tab()
     with tabs[3]:
         _render_assembly_tab()
+
