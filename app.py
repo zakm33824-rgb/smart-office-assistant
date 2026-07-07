@@ -815,6 +815,15 @@ def _normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
     return work
 
 
+def _ui_preview_frame(df: pd.DataFrame) -> pd.DataFrame:
+    if df.empty:
+        return df
+    preview = df.copy()
+    if any(re.search(r'[A-Za-z]', str(col)) for col in preview.columns):
+        preview.columns = [f'??{i + 1}' for i in range(len(preview.columns))]
+    return preview
+
+
 def _infer_table_rows_from_prompt(prompt: str, default: int) -> int:
     match = re.search(r'(\d+)\s*(?:行|条|家|项|个样本|条数据)', normalize_text(prompt))
     if match:
@@ -1050,13 +1059,13 @@ def _page_editor_df(plan: dict[str, Any]) -> pd.DataFrame:
     rows = []
     for page in plan.get('pages', []):
         rows.append({
-            'page_no': page.get('page_no'),
-            'layout_type': page.get('layout_type', ''),
-            'title': page.get('title', ''),
-            'section': page.get('section', ''),
-            'subtitle': page.get('subtitle', ''),
-            'bullets': '\n'.join(page.get('bullets', [])[:4]),
-            'candidate_count': len(page.get('recommended_slide_ids', [])),
+            '页码': page.get('page_no'),
+            '布局类型': _humanize_layout(str(page.get('layout_type', ''))),
+            '标题': page.get('title', ''),
+            '章节': page.get('section', ''),
+            '副标题': page.get('subtitle', ''),
+            '要点': '\\n'.join(page.get('bullets', [])[:4]),
+            '候选数': len(page.get('recommended_slide_ids', [])),
         })
     return pd.DataFrame(rows)
 
@@ -1065,15 +1074,20 @@ def _apply_editor_changes(plan: dict[str, Any], edited_df: pd.DataFrame) -> dict
     updated = deepcopy(plan)
     pages: list[dict[str, Any]] = []
     for _, row in edited_df.iterrows():
-        page_no = int(row.get('page_no', 0))
+        page_no = int(row.get('页码', row.get('page_no', 0)))
         page = deepcopy(plan['pages'][page_no - 1]) if 0 < page_no <= len(plan.get('pages', [])) else {}
-        page['title'] = normalize_text(str(row.get('title', page.get('title', '')))) or page.get('title', '')
-        page['section'] = normalize_text(str(row.get('section', page.get('section', '')))) or page.get('section', '')
-        page['subtitle'] = normalize_text(str(row.get('subtitle', page.get('subtitle', '')))) or page.get('subtitle', '')
-        layout_type = normalize_text(str(row.get('layout_type', page.get('layout_type', ''))))
-        if layout_type:
-            page['layout_type'] = layout_type
-        bullets_text = str(row.get('bullets', '')).strip()
+        page['title'] = normalize_text(str(row.get('标题', row.get('title', page.get('title', ''))))) or page.get('title', '')
+        page['section'] = normalize_text(str(row.get('章节', row.get('section', page.get('section', ''))))) or page.get('section', '')
+        page['subtitle'] = normalize_text(str(row.get('副标题', row.get('subtitle', page.get('subtitle', ''))))) or page.get('subtitle', '')
+        layout_text = normalize_text(str(row.get('布局类型', row.get('layout_type', page.get('layout_type', '')))))
+        if layout_text:
+            for key, label in LAYOUT_LABELS.items():
+                if layout_text == label or layout_text == key:
+                    page['layout_type'] = key
+                    break
+            else:
+                page['layout_type'] = layout_text
+        bullets_text = str(row.get('要点', row.get('bullets', ''))).strip()
         if bullets_text:
             bullets = [item.strip() for item in re.split(r'[\n；;|,，]+', bullets_text) if item.strip()]
             page['bullets'] = bullets[:6]
@@ -1598,10 +1612,15 @@ def _render_candidate_rows(plan_page: dict[str, Any], slide_lookup: pd.DataFrame
     if rec_df.empty:
         st.info('该页暂无对应候选布局，可以保持自动绘制或再刷新调整。')
         return default_choice
-    display_df = pd.DataFrame({
-        '布局类型': rec_df['layout_type'].astype(str).map(_humanize_layout) if 'layout_type' in rec_df.columns else [],
-        '综合评分': rec_df['overall_quality_score'].astype(int) if 'overall_quality_score' in rec_df.columns else [],
-    })
+    display_df = pd.DataFrame()
+    if 'slide_type' in rec_df.columns:
+        display_df['页面类型'] = rec_df['slide_type'].astype(str).map(_humanize_page_type)
+    if 'slide_subtype' in rec_df.columns:
+        display_df['页面细类'] = rec_df['slide_subtype'].astype(str)
+    if 'layout_type' in rec_df.columns:
+        display_df['布局类型'] = rec_df['layout_type'].astype(str).map(_humanize_layout)
+    if 'overall_quality_score' in rec_df.columns:
+        display_df['综合评分'] = rec_df['overall_quality_score'].astype(int)
     st.dataframe(display_df.head(3), use_container_width=True, hide_index=True)
     img_cols = st.columns(min(3, len(rec_df)))
     for idx, (_, row) in enumerate(rec_df.head(3).iterrows()):
@@ -1619,6 +1638,7 @@ def _render_candidate_rows(plan_page: dict[str, Any], slide_lookup: pd.DataFrame
 
 
 def render_ppt_workbench() -> None:
+
     st.header('演示文稿生成工作台')
     st.caption('先出三套方案，再按页编辑，最后导出演示文稿。')
     left, right = st.columns([1.25, 1])
@@ -1634,7 +1654,7 @@ def render_ppt_workbench() -> None:
                 st.session_state[UPLOADED_DF_KEY] = uploaded_df
                 st.session_state[UPLOADED_PROFILE_KEY] = analyze_uploaded_dataframe(uploaded_df)
                 st.success(st.session_state[UPLOADED_PROFILE_KEY]['summary'])
-                st.dataframe(uploaded_df.head(8), use_container_width=True, hide_index=True)
+                st.dataframe(_ui_preview_frame(uploaded_df).head(8), use_container_width=True, hide_index=True)
             except Exception as exc:  # noqa: BLE001
                 st.error(f'数据读取失败：{exc}')
         elif st.session_state.get(UPLOADED_PROFILE_KEY):
@@ -1682,7 +1702,7 @@ def render_ppt_workbench() -> None:
     _render_plan_overview(plan)
     st.subheader('页面大纲')
     editor_df = _page_editor_df(plan)
-    edited_df = st.data_editor(editor_df, use_container_width=True, hide_index=True, disabled=['page_no', 'candidate_count'])
+    edited_df = st.data_editor(editor_df, use_container_width=True, hide_index=True, disabled=['页码', '候选数'])
     editor_cols = st.columns(3)
     with editor_cols[0]:
         if st.button('应用页面修改', type='primary', use_container_width=True):
@@ -1800,21 +1820,37 @@ def render_table_workbench() -> None:
                 st.error(f'文件读取失败：{exc}')
         if raw_df is not None and not raw_df.empty:
             profile = st.session_state.get(UPLOADED_PROFILE_KEY) or analyze_uploaded_dataframe(raw_df)
-            st.json(profile)
-            st.dataframe(raw_df.head(10), use_container_width=True, hide_index=True)
+            profile_df = pd.DataFrame([{
+                '行数': profile.get('rows', 0),
+                '列数': profile.get('columns', 0),
+                '数值列': len(profile.get('numeric_columns', [])),
+                '文本列': len(profile.get('text_columns', [])),
+                '日期列': len(profile.get('date_columns', [])),
+                '含百分比字段': '是' if profile.get('has_percent') else '否',
+                '含地图字段': '是' if profile.get('has_map') else '否',
+                '含趋势字段': '是' if profile.get('has_trend') else '否',
+                '推荐图表': '、'.join(_humanize_layout(str(item)) for item in profile.get('suggested_visuals', [])) or '暂无',
+            }])
+            st.dataframe(profile_df, use_container_width=True, hide_index=True)
+            st.dataframe(_ui_preview_frame(raw_df).head(10), use_container_width=True, hide_index=True)
             controls = st.columns(3)
+            field_labels = {col: f'字段{i + 1}' for i, col in enumerate(raw_df.columns)}
             with controls[0]:
                 dedupe = st.checkbox('去重', value=True, key='table_dedupe')
                 fill_missing = st.checkbox('填充空值', value=True, key='table_fill_missing')
                 add_total_row = st.checkbox('添加汇总行', value=False, key='table_total_row')
             with controls[1]:
-                sort_column = st.selectbox('排序列', [''] + raw_df.columns.tolist(), index=0, key='table_sort_column')
+                sort_options = [''] + raw_df.columns.tolist()
+                sort_column = st.selectbox('排序列', sort_options, index=0, key='table_sort_column', format_func=lambda value: '不排序' if value == '' else field_labels.get(value, str(value)))
                 ascending = st.checkbox('升序', value=False, key='table_sort_ascending')
             with controls[2]:
-                group_column = st.selectbox('分组列', [''] + raw_df.columns.tolist(), index=0, key='table_group_column')
+                group_options = [''] + raw_df.columns.tolist()
+                group_column = st.selectbox('分组列', group_options, index=0, key='table_group_column', format_func=lambda value: '不分组' if value == '' else field_labels.get(value, str(value)))
                 agg_candidates = [''] + [col for col in raw_df.columns if pd.api.types.is_numeric_dtype(raw_df[col])]
-                agg_column = st.selectbox('汇总列', agg_candidates, index=0 if len(agg_candidates) == 1 else 1, key='table_agg_column')
-            agg_func = st.selectbox('汇总方式', ['sum', 'mean', 'max', 'min', 'count'], key='table_agg_func')
+                agg_column = st.selectbox('汇总列', agg_candidates, index=0 if len(agg_candidates) == 1 else 1, key='table_agg_column', format_func=lambda value: '不汇总' if value == '' else field_labels.get(value, str(value)))
+            agg_label_to_code = {'求和': 'sum', '平均': 'mean', '最大值': 'max', '最小值': 'min', '计数': 'count'}
+            agg_label = st.selectbox('汇总方式', list(agg_label_to_code.keys()), key='table_agg_func')
+            agg_func = agg_label_to_code[agg_label]
             if st.button('处理表格', type='primary', use_container_width=True):
                 try:
                     processed_df, summary_df = process_dataframe(raw_df, dedupe=dedupe, fill_missing=fill_missing, sort_column=sort_column, ascending=ascending, group_column=group_column, agg_column=agg_column, agg_func=agg_func, add_total_row=add_total_row)
@@ -1826,14 +1862,15 @@ def render_table_workbench() -> None:
             processed_df = st.session_state.get(TABLE_DF_KEY)
             summary_df = st.session_state.get(TABLE_SUMMARY_KEY)
             if isinstance(processed_df, pd.DataFrame) and not processed_df.empty:
-                st.dataframe(processed_df, use_container_width=True, hide_index=True)
+                st.dataframe(_ui_preview_frame(processed_df), use_container_width=True, hide_index=True)
                 export_bytes = dataframe_to_bytes(processed_df, file_format='xlsx', summary_df=summary_df, theme_name=theme_name)
                 st.download_button('下载电子表格', data=export_bytes, file_name='processed_table.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', use_container_width=True)
                 csv_bytes = dataframe_to_bytes(processed_df, file_format='csv')
                 st.download_button('下载文本表格', data=csv_bytes, file_name='processed_table.csv', mime='text/csv', use_container_width=True)
             if isinstance(summary_df, pd.DataFrame) and not summary_df.empty:
                 st.markdown('**分组汇总**')
-                st.dataframe(summary_df, use_container_width=True, hide_index=True)
+                summary_view = summary_df.rename(columns={col: field_labels.get(col, col) for col in summary_df.columns})
+                st.dataframe(summary_view, use_container_width=True, hide_index=True)
         else:
             st.info('请先上传表格文件。')
 
@@ -1863,6 +1900,7 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
+
 
 
 
